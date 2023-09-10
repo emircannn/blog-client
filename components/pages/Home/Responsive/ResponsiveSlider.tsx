@@ -18,7 +18,7 @@ const ResponsiveSlider: React.FC<Props> = ({data}) => {
     const settings = {
         dots: false,
         infinite: true,
-        fade: false,
+        fade: true,
         arrows:false,
         autoplay: true,
         speed: 2000,
