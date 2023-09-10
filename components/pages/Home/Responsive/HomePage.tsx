@@ -1,7 +1,8 @@
 'use client'
 
+import MostReaded from "../../MostReaded/MostReaded";
 import ResponsiveSlider from "./ResponsiveSlider";
-import SliderWrapper from "./Slider";
+import SliderWrapper from "./SliderWrapper";
 
 const HomePage = () => {
 
@@ -20,6 +21,8 @@ const HomePage = () => {
         />
         <ResponsiveSlider
         data={data}/>
+
+        <MostReaded/>
     </main> 
     );
 }

@@ -16,12 +16,13 @@ interface DataItem {
 
 const SliderWrapper: React.FC<Props> = ({data}) => {
     return ( 
-        <div className="min-w-full aspect-video md:aspect-[3/1] relative max-xl:hidden">
+        <div className="w-screen xl:aspect-[3/1] relative max-xl:hidden">
                 <Slider {...settings}>
                     {data?.map((item, i ) => (
                         <Slide
                         key={i}
-                        item={item}/>
+                        item={item}
+                        />
                     ))}
                 </Slider>
         </div>

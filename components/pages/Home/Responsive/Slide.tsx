@@ -16,9 +16,9 @@ interface DataItem {
 
 const Slide: React.FC<Props> = ({item}) => {
     return ( 
-        <div className="w-full h-full relative overflow-hidden flex items-center justify-center p-3">
+        <div className="w-screen aspect-[3/1] relative overflow-hidden flex items-center justify-center p-3">
             <Image alt="banner" src={item?.image} fill quality={100} className="object-cover blur-sm"/>
-            <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-white dark:bg-darkerColor/50"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-white dark:bg-darkerColor/50"/>
 
             <div className="max-w-[1280px] w-full flex md:aspect-[3/1] gap-3 bg-white dark:bg-darkerColor z-10 rounded-xl p-5">
                 <div className="w-[45%] h-full flex flex-col gap-4 p-3 2xl:p-5 pb-0 2xl:pb-0">
