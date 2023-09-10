@@ -5,6 +5,8 @@ import { Poppins } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layouts/Header'
 const font = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '800', '900'] })
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata: Metadata = {
   title: 'Blog Site',
