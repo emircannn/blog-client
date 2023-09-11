@@ -1,8 +1,9 @@
 'use client'
 
-import MostReaded from "../../MostReaded/MostReaded";
-import ResponsiveSlider from "./ResponsiveSlider";
-import SliderWrapper from "./SliderWrapper";
+import LastArticles from "./LastArticles";
+import MostReaded from "./MostReaded/MostReaded";
+import ResponsiveSlider from "./Responsive/ResponsiveSlider";
+import SliderWrapper from "./Slider/SliderWrapper";
 
 const HomePage = () => {
 
@@ -15,7 +16,7 @@ const HomePage = () => {
     ]
 
     return ( 
-    <main className="flex flex-col gap-5">
+    <main className="flex flex-col gap-5 pb-5">
         <SliderWrapper
             data={data}
         />
@@ -23,6 +24,8 @@ const HomePage = () => {
         data={data}/>
 
         <MostReaded/>
+
+        <LastArticles/>
     </main> 
     );
 }
