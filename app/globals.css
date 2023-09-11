@@ -89,6 +89,15 @@
   @apply bg-lightColor dark:bg-darkColor
 }
 
+.leftbutton{
+  top: 43.5%;
+  left: -3.8%;
+}
+.rightbutton{
+  top: 43.5%;
+  right: -4%;
+}
+
   /** Sroll */ 
   ::-webkit-scrollbar {
     width: 6px;

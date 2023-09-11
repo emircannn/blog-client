@@ -4,6 +4,7 @@ import LastArticles from "./LastArticles";
 import MostReaded from "./MostReaded/MostReaded";
 import ResponsiveSlider from "./Responsive/ResponsiveSlider";
 import SliderWrapper from "./Slider/SliderWrapper";
+import Writers from "./Writers";
 
 const HomePage = () => {
 
@@ -26,6 +27,8 @@ const HomePage = () => {
         <MostReaded/>
 
         <LastArticles/>
+
+        <Writers/>
     </main> 
     );
 }
