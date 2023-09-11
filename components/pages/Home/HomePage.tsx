@@ -1,9 +1,12 @@
 'use client'
 
+import Actual from "./Actual";
+import Categories from "./Categories";
 import LastArticles from "./LastArticles";
 import MostReaded from "./MostReaded/MostReaded";
 import ResponsiveSlider from "./Responsive/ResponsiveSlider";
 import SliderWrapper from "./Slider/SliderWrapper";
+import WriteWithUs from "./WriteWithUs";
 import Writers from "./Writers";
 
 const HomePage = () => {
@@ -17,7 +20,7 @@ const HomePage = () => {
     ]
 
     return ( 
-    <main className="flex flex-col gap-5 pb-5">
+    <main className="flex flex-col gap-5 lg:gap-8 pb-5">
         <SliderWrapper
             data={data}
         />
@@ -29,6 +32,12 @@ const HomePage = () => {
         <LastArticles/>
 
         <Writers/>
+
+        <Actual/>
+
+        <WriteWithUs/>
+
+        <Categories/>
     </main> 
     );
 }
