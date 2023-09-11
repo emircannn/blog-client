@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        "400": "400px"
+      },
       colors: {
         lightColor: '#F5F5F5',
         darkColor: '#262626',

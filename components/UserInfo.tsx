@@ -9,7 +9,7 @@ const UserInfo = () => {
                 <div className="w-7 aspect-square rounded-full relative overflow-hidden">
                 <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                 </div>
-                <span className="text-xs font-semibold">Yusuf İslam</span>
+                <span className="text-xs font-semibold line-clamp-1">Yusuf İslam</span>
                 <span className="opacity-50 text-xs">10/09/2023</span>
             </div>
 
