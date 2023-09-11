@@ -18,7 +18,7 @@ const Subject = () => {
             </p>
 
             <div className="flex justify-between items-center text-xs opacity-60">
-                <span>Yazı Sayısı: 12</span>
+                <span>Yazı Adeti: 12</span>
                 <span>11/09/2023</span>
             </div>
         </div>

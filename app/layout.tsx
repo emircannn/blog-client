@@ -7,6 +7,7 @@ import Header from '@/components/layouts/Header'
 const font = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '800', '900'] })
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from '@/components/layouts/Footer'
 
 export const metadata: Metadata = {
   title: 'Blog Site',
@@ -24,12 +25,13 @@ export default function RootLayout({
       <body className={cn(font.className, "bg-white dark:bg-darkerColor text-darkColor dark:text-white overflow-x-hidden")}>
         <ThemeProvider
         attribute='class'
-        defaultTheme='dark'
+        defaultTheme='system'
         enableSystem={true}
         storageKey='theme'
         >
           <Header/>
-        {children}
+            {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

@@ -24,10 +24,19 @@ const Actual = () => {
           <Subject/>
           <Subject/>
           
-          <div className="rounded-xl overflow-hidden">
+          <div className="rounded-xl overflow-hidden hidden dark:inline-block">
           <TwitterTimelineEmbed
           sourceType="profile"
           screenName="mesniu_0"
+          theme="dark"
+          options={{height: 460}}
+          />
+          </div>
+          <div className="rounded-xl overflow-hidden dark:hidden">
+          <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="mesniu_0"
+          theme="light"
           options={{height: 460}}
           />
           </div>
