@@ -5,7 +5,7 @@ const NextBtn = ({onClick}) => {
     return (
       <button 
       onClick={onClick} 
-      className="absolute z-50 rightbutton bg-thirth text-white rounded-full p-2">
+      className="absolute z-50 rightbutton bg-thirth text-white rounded-full p-1 md:p-2">
         <ChevronRight/>
       </button>
     );
@@ -14,7 +14,7 @@ const NextBtn = ({onClick}) => {
     return (
       <button 
       onClick={onClick} 
-      className="absolute z-50 leftbutton bg-thirth text-white rounded-full p-2">
+      className="absolute z-50 leftbutton bg-thirth text-white rounded-full p-1 md:p-2">
         <ChevronLeft/>
       </button>
     );
