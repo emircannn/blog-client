@@ -1,7 +1,7 @@
 'use client'
 
-import CategoryMark from "@/components/CategoryMark";
 import UserInfo from "@/components/UserInfo";
+import { Badge } from "@/components/ui/badge";
 import { Bookmark, Heart, MessageCircleIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -9,7 +9,11 @@ const SmallWrapper = () => {
     return ( 
         <div className="col-span-6 md:col-span-3 row-span-1 shrink-0 backgroundColor rounded-xl p-2 flex justify-between gap-3">
                     <div className="flex flex-col justify-between md:p-2">
-                    <CategoryMark/>
+                    <span>
+                    <Badge>
+                        Tarih
+                    </Badge>
+                    </span>
                     <h4 className="articleHeading">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate omnis ratione commodi eaque distinctio?
                     </h4>

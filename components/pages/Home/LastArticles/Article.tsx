@@ -1,7 +1,7 @@
 'use client'
 
-import CategoryMark from "@/components/CategoryMark";
 import UserInfo from "@/components/UserInfo";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const Article = () => {
@@ -11,7 +11,11 @@ const Article = () => {
             <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
             </div>
             <div className="p-2 pb-0 flex flex-col gap-3">
-                <CategoryMark/>
+                    <span>
+                    <Badge>
+                        Tarih
+                    </Badge>
+                    </span>
                 <h4 className="articleHeading !line-clamp-1">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem error ut provident est saepe sed?
                 </h4>

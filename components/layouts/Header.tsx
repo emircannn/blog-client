@@ -2,6 +2,7 @@
 
 import Avatar from "../Avatar";
 import Logo from "../logo";
+import SearchModal from "../modals/SearchModal";
 import { ModeToggle } from "../themeToggle";
 import ClientOnly from "./ClientOnly";
 import Navbar from "./Navbar";
@@ -35,6 +36,7 @@ const Header = () => {
             />
 
             <div className="flex items-center gap-3">
+                <SearchModal/>
                 <div className="max-md:hidden">
                 <ModeToggle/>
                 </div>

@@ -1,8 +1,7 @@
 'use client'
 
-import CategoryMark from "@/components/CategoryMark";
 import UserInfo from "@/components/UserInfo";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Bookmark, Heart, MessageCircleIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -12,7 +11,9 @@ const BigWrapper = () => {
                     <div className="w-full aspect-video rounded-xl relative overflow-hidden">
                     <Image alt="banner" src='/images/test.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                     <span className="absolute top-2 left-2">
-                    <CategoryMark/>
+                        <Badge>
+                            Tarih
+                        </Badge>
                     </span>
                     </div>
                     <div className="flex flex-col p-2 pb-0 gap-2">
