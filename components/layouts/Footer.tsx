@@ -65,14 +65,14 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-                <div className="flex flex-col gap-4 items-end max-md:items-center">
+                <div className="flex flex-col gap-4 items-center">
                     <h4 className="font-semibold md:text-lg mt-4">Bize Dair</h4>
 
                     <div className="flex flex-col gap-2 text-end">
-                            <a href='/hakkimizda' className="text-sm hover:opacity-60 duration-300 max-md:text-center">
+                            <a href='/hakkimizda' className="text-sm hover:opacity-60 duration-300 text-center">
                                 Hakkımızda
                             </a>
-                            <a href='/hakkimizda' className="text-sm hover:opacity-60 duration-300 max-md:text-center">
+                            <a href='/hakkimizda' className="text-sm hover:opacity-60 duration-300 text-center">
                                 Bağış Yap
                             </a>
                     </div>

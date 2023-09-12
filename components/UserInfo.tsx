@@ -5,18 +5,24 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { Twitter } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
-const UserInfo = () => {
+interface Props {
+    className?: string;
+    lg?: boolean 
+}
+
+const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false}) => {
     return ( 
         <div className="flex items-center justify-between">
             <HoverCard>
                 <HoverCardTrigger>
                 <div className="flex items-center gap-2 cursor-pointer">
-                    <div className="w-7 aspect-square rounded-full relative overflow-hidden">
+                    <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden")}>
                         <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                     </div>
-                    <span className="text-xs font-semibold line-clamp-1">Yusuf İslam</span>
-                    <span className="opacity-60 text-xs">10/09/2023</span>
+                    <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>Yusuf İslam</span>
+                    <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>
                 </div>
                 </HoverCardTrigger>
 
@@ -41,7 +47,7 @@ const UserInfo = () => {
                 </HoverCardContent>
             </HoverCard>
 
-            <div className="text-xs opacity-60 max-lg:hidden">
+            <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60 max-lg:hidden`}>
             1.8b okunma
             </div>
         </div>
