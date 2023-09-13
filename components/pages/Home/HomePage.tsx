@@ -20,7 +20,7 @@ const HomePage = () => {
     ]
 
     return ( 
-    <main className="flex flex-col gap-5 lg:gap-8 pb-5">
+    <div className="flex flex-col gap-5 lg:gap-8 pb-5">
         <SliderWrapper
             data={data}
         />
@@ -38,7 +38,7 @@ const HomePage = () => {
         <WriteWithUs/>
 
         <Categories/>
-    </main> 
+    </div> 
     );
 }
  

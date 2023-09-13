@@ -26,7 +26,6 @@ const Header = () => {
     ]
 
     return ( 
-    <ClientOnly>
     <header className=" bg-white dark:bg-darkerColor sticky top-0 border-b dark:border-darkColor border-lightColor z-50">
         <div className="flex items-center justify-between gap-3 container min-h-full">
             <Logo/>
@@ -44,8 +43,7 @@ const Header = () => {
                 <ResponsiveNavbar/>
             </div>
         </div>
-    </header> 
-    </ClientOnly>
+    </header>
     );
 }
 export default Header;

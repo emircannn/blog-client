@@ -1,4 +1,3 @@
-'use client'
 
 import ClientOnly from "@/components/layouts/ClientOnly"
 import ArticlePage from "@/components/pages/Article"

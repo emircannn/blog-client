@@ -1,4 +1,3 @@
-'use client'
 
 import UserInfo from "@/components/UserInfo";
 import { Badge } from "@/components/ui/badge";
@@ -17,9 +16,9 @@ const BigWrapper = () => {
                     </span>
                     </div>
                     <div className="flex flex-col p-2 pb-0 gap-2">
-                        <h3 className="articleHeading !line-clamp-1">
+                        <h4 className="articleHeading !line-clamp-1">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est non ipsam impedit quibusdam laborum!
-                        </h3>
+                        </h4>
 
                         <UserInfo/>
 

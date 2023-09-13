@@ -1,4 +1,3 @@
-'use client'
 
 import Subject from "../Home/Actual/Subject"
 import OtherArticles from "./OtherArticles"

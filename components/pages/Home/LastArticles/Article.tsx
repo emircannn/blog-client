@@ -1,4 +1,3 @@
-'use client'
 
 import UserInfo from "@/components/UserInfo";
 import { Badge } from "@/components/ui/badge";
@@ -16,9 +15,9 @@ const Article = () => {
                         Tarih
                     </Badge>
                     </span>
-                <h4 className="articleHeading !line-clamp-1">
+                <h5 className="articleHeading !line-clamp-1">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem error ut provident est saepe sed?
-                </h4>
+                </h5>
                 <p className="line-clamp-3 text-xs sm:text-sm opacity-60">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero ullam placeat perspiciatis a, labore, iure inventore aspernatur repellendus dicta maxime facere rerum voluptatibus veritatis? Velit reiciendis dolor quia earum corrupti.
                 </p>

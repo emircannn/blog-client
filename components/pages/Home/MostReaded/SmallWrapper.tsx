@@ -1,4 +1,3 @@
-'use client'
 
 import UserInfo from "@/components/UserInfo";
 import { Badge } from "@/components/ui/badge";

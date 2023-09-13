@@ -1,4 +1,3 @@
-'use client'
 
 import { ArrowRight, Instagram, Twitter } from 'lucide-react';
 import Category from './Category';
@@ -18,7 +17,7 @@ const Categories = () => {
         </div>
 
         <aside className="w-1/3 max-lg:w-full flex flex-col gap-4">
-            <h6 className="heading">Sosyal Medya Hesaplarımız</h6>
+            <p className="heading">Sosyal Medya Hesaplarımız</p>
             <div className="gap-4 grid grid-cols-1 max-lg:grid-cols-2 max-sm:grid-cols-1">
                 <div className='w-full rounded-xl backgroundColor p-3 flex items-center justify-between gap-4'>
                     <span className='flex items-center gap-3'>

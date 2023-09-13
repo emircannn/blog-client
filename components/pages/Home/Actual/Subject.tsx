@@ -1,4 +1,3 @@
-'use client'
 
 import Image from "next/image"
 
@@ -11,7 +10,7 @@ const Subject = () => {
         </div>
 
         <div className="flex flex-col justify-between gap-2">
-            <h1 className="articleHeading !line-clamp-1">Kafkasya Sayısı</h1>
+            <h6 className="articleHeading !line-clamp-1">Kafkasya Sayısı</h6>
 
             <p className="line-clamp-3 text-xs font-medium opacity-60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sapiente sunt vero optio eum iste, non modi, reiciendis velit id at obcaecati, voluptatum laborum? Sit dignissimos illo magni exercitationem vitae?

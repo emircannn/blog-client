@@ -1,4 +1,3 @@
-'use client'
 
 import UserInfo from "@/components/UserInfo"
 import Image from "next/image"
@@ -17,8 +16,8 @@ const ArticlePage = () => {
 
   return (
     <>
-    <main className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
-        <article className="col-span-4 lg:col-span-3 backgroundColor rounded-xl p-3 md:p-6 flex flex-col gap-4">
+    <section className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
+        <main className="col-span-4 lg:col-span-3 backgroundColor rounded-xl p-3 md:p-6 flex flex-col gap-4">
             <span className="flex items-center justify-between">
                 <Badge>Tarih</Badge>
                 <a href="#comment" className="text-xs font-semibold opacity-60">
@@ -45,17 +44,17 @@ const ArticlePage = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias velit mollitia aliquam corrupti in aut fuga tempore dolorem assumenda deserunt!
             </p>
         </div>
-        </article>
+        </main>
 
         <aside className="lg:col-span-1 col-span-4 relative">
             <Aside/>
         </aside>
 
-    </main>
+    </section>
     
     <div id="comment" className="grid grid-cols-4 container py-5">
         <div className="flex flex-col gap-4 col-span-4 lg:col-span-3">
-            <h5 className="heading">Yorum Yap</h5>
+            <p className="heading">Yorum Yap</p>
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Avatar>
