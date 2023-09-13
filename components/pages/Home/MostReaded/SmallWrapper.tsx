@@ -3,6 +3,7 @@ import UserInfo from "@/components/UserInfo";
 import { Badge } from "@/components/ui/badge";
 import { Bookmark, Heart, MessageCircleIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const SmallWrapper = () => {
     return ( 
@@ -13,9 +14,9 @@ const SmallWrapper = () => {
                         Tarih
                     </Badge>
                     </span>
-                    <h4 className="articleHeading">
+                    <Link href='/yazi/test' className="articleHeading hover:underline duration-300">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate omnis ratione commodi eaque distinctio?
-                    </h4>
+                    </Link>
                     <UserInfo/>
                     <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
@@ -34,9 +35,9 @@ const SmallWrapper = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="h-full shrink-0 rounded-xl aspect-square overflow-hidden relative">
+                    <Link href='/yazi/test' className="h-full shrink-0 rounded-xl aspect-square overflow-hidden relative ">
                     <Image alt="banner" src='/images/test.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
-                    </div>
+                    </Link>
                 </div>
      );
 }

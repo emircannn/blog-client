@@ -16,13 +16,13 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false}) => {
         <div className="flex items-center justify-between">
             <HoverCard>
                 <HoverCardTrigger>
-                <div className="flex items-center gap-2 cursor-pointer">
+                <Link href='/kullanici' className="flex items-center gap-2 cursor-pointer">
                     <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden")}>
                         <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                     </div>
                     <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>Yusuf İslam</span>
                     <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>
-                </div>
+                </Link>
                 </HoverCardTrigger>
 
                 <HoverCardContent className="backgroundColor border dark:border-darkerColor/60 shadow-md w-80">

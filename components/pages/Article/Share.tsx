@@ -1,4 +1,4 @@
-
+'use client'
 import { Button } from "@/components/ui/button"
 import { Facebook, MessageCircle, Twitter } from "lucide-react"
 import { share } from "./shareArticle"

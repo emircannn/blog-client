@@ -2,11 +2,10 @@
 import ClientOnly from "@/components/layouts/ClientOnly"
 import ArticlePage from "@/components/pages/Article"
 
-
-const Page = () => {
+const Page = async ({ params }: { params: { seo: string } }) => {
   return (
     <ClientOnly>
-        <ArticlePage/>
+        <ArticlePage seo={params.seo}/>
     </ClientOnly>
   )
 }

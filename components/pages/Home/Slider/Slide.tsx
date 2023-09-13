@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DataItem {
     title?: string;
@@ -28,7 +29,9 @@ const Slide: React.FC<Props> = ({item}) => {
 
                     <div className="shrink-0">
                         <Button size='lg'>
+                            <Link href='/yazi/test'>
                             Devamını Oku
+                            </Link>
                         </Button>
                     </div>
                 </div>
