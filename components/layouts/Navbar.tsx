@@ -23,11 +23,9 @@ const Navbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
                {item?.dropdown && 
                <div className="absolute left-0 z-[999] top-[100%] bg-white dark:bg-darkColor w-[220px] rounded-xl border border-thirth overflow-hidden group-hover:translate-x-0 duration-300 translate-x-[5000%] flex flex-col">
                 {item?.dropdown?.map((subItem, i) => (
-                    <span key={i} className="p-3 hover:dark:bg-darkerColor hover:bg-lightColor duration-300 shrink-0 text-[13px] font-semibold">
-                        <Link href={subItem?.href}>
+                    <Link href={subItem?.href} key={i} className="p-3 hover:dark:bg-darkerColor hover:bg-lightColor duration-300 shrink-0 text-[13px] font-semibold">
                         {subItem?.label}
-                        </Link>
-                    </span>
+                    </Link>
                 ))}
                 </div>}
             </li>

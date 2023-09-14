@@ -12,15 +12,15 @@ const ResponsiveNavbar = () => {
 
     const navbar = [
         {label: 'Ana Sayfa', href: '/',},
-        {label: 'Sayılar', href: '/', dropdown: [
-            {label: 'Kırım Sayısı', href: '/'},
-            {label: 'Türkistan Sayısı', href: '/'},
+        {label: 'Sayılar', href: '/sayilar', dropdown: [
+            {label: 'Kırım Sayısı', href: '/sayi/kirim'},
+            {label: 'Türkistan Sayısı', href: '/sayi/turkistan'},
         ]},
         {label: 'Kategoriler', href: '/', dropdown: [
-            {label: 'Tarih', href: '/'},
-            {label: 'Siyaset', href: '/'},
-            {label: 'Felsefe', href: '/'},
-            {label: 'Aktüel', href: '/'},
+            {label: 'Tarih', href: '/kategori/tarih'},
+            {label: 'Siyaset', href: '/kategori/siyaset'},
+            {label: 'Felsefe', href: '/kategori/felsefe'},
+            {label: 'Aktüel', href: '/aktuel'},
         ]},
         {label: 'Hakkımızda', href: '/',},
     ]

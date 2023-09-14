@@ -1,7 +1,7 @@
 
+import Social from "../../Actual/Social";
 import Article from "../LastArticles/Article"
 import Subject from "./Subject"
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const Actual = () => {
   return (
@@ -23,22 +23,7 @@ const Actual = () => {
           <Subject/>
           <Subject/>
           
-          <div className="rounded-xl overflow-hidden hidden dark:inline-block">
-          <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="mesniu_0"
-          theme="dark"
-          options={{height: 460}}
-          />
-          </div>
-          <div className="rounded-xl overflow-hidden dark:hidden">
-          <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="mesniu_0"
-          theme="light"
-          options={{height: 460}}
-          />
-          </div>
+          <Social/>
         </article>
       </aside>
     </section>
