@@ -1,10 +1,9 @@
 'use client'
 
-import Avatar from "../Avatar";
 import Logo from "../logo";
 import SearchModal from "../modals/SearchModal";
 import { ModeToggle } from "../themeToggle";
-import ClientOnly from "./ClientOnly";
+import Auth from "./Auth";
 import Navbar from "./Navbar";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 
@@ -39,7 +38,7 @@ const Header = () => {
                 <div className="max-md:hidden">
                 <ModeToggle/>
                 </div>
-                <Avatar/>
+                <Auth/>
                 <ResponsiveNavbar/>
             </div>
         </div>
