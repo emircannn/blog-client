@@ -12,7 +12,7 @@ export function share({
     platform
 }: Props) {
     const pageUrl = window.location.href;
-    const writerProfil = `@${userProfile}`
+    const writerProfil = userProfile ? `@${userProfile}` : null;
     const shareMessage = `${_title} - ${pageUrl} - ${writerProfil} tarafından.`
 
     let platformUrl = '';

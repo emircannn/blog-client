@@ -1,16 +1,16 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { Facebook, MessageCircle, Twitter } from "lucide-react"
-import { share } from "./shareArticle"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
+import { share } from "../Article/shareArticle"
 
 
 const Share = () => {
   return (
-    <div className="flex flex-col gap-4 items-center sticky top-[100px]">
-        <h6 className="text-sm font-medium uppercase">Paylaş</h6>
+    <div className="flex flex-col gap-4 items-center rounded-xl p-3">
+        <h6 className="text-sm font-semibold uppercase">Paylaş</h6>
 
-        <div className="grid grid-cols-3 sm:grid-cols-2 gap-4">
+        <div className="flex items-center justify-center gap-4">
         <HoverCard>
             <HoverCardTrigger>
             <Button size='icon' onClick={() => share({userProfile: 'mesniu_0', _title: 'Türk Milliyetçiliğinin Meseleleri', platform: 'twitter'})}>

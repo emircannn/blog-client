@@ -8,10 +8,12 @@ import { twMerge } from "tailwind-merge";
 
 interface Props {
     className?: string;
-    lg?: boolean 
+    lg?: boolean ,
+    date?: boolean ,
+    readCount?: boolean
 }
 
-const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false}) => {
+const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, readCount=true}) => {
     return ( 
         <div className="flex items-center justify-between">
             <HoverCard>
@@ -21,7 +23,7 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false}) => {
                         <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                     </div>
                     <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>Yusuf İslam</span>
-                    <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>
+                    {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>}
                 </Link>
                 </HoverCardTrigger>
 
@@ -46,9 +48,10 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false}) => {
                 </HoverCardContent>
             </HoverCard>
 
+            {readCount &&
             <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60 max-lg:hidden`}>
             1.8b okunma
-            </div>
+            </div>}
         </div>
      );
 }
