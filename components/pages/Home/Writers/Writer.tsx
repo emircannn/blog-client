@@ -5,7 +5,7 @@ import Link from "next/link"
 const Writer = () => {
 
     return (
-    <Link href='/kullanici/ysf' className="px-2 w-full flex">
+    <Link href='/yazar/ysf' className="px-2 w-full flex">
         <div className="w-full aspect-[1/1.3] rounded-xl bg-white dark:bg-darkerColor flex flex-col overflow-hidden">
             <div className="w-full h-[40%] md:h-1/2 relative">
                 <Image alt="banner" src='/images/wallpaper.jpg' fill quality={100} className="object-cover"/>

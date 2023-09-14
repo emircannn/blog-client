@@ -19,7 +19,7 @@ const Share = () => {
             </HoverCardTrigger>
             <HoverCardContent className="backgroundColor border dark:border-darkerColor/60 shadow-md rounded-xl text-sm font-medium">
                 <p className="shrink-0 flex">
-                Yazımızı Twitter profilinde paylaş
+                Bu Sayıyı Twitter profilinde paylaş
                 </p>
             </HoverCardContent>
         </HoverCard>
@@ -31,7 +31,7 @@ const Share = () => {
             </HoverCardTrigger>
             <HoverCardContent className="backgroundColor border dark:border-darkerColor/60 shadow-md rounded-xl text-sm font-medium">
                 <p className="shrink-0 flex">
-                Yazımızı Whatsapp aracılığı ile paylaş
+                Bu Sayıyı Whatsapp aracılığı ile paylaş
                 </p>
             </HoverCardContent>
         </HoverCard>
@@ -43,7 +43,7 @@ const Share = () => {
             </HoverCardTrigger>
             <HoverCardContent className="backgroundColor border dark:border-darkerColor/60 shadow-md rounded-xl text-sm font-medium">
                 <p className="shrink-0 flex">
-                Yazımızı Facebook aracılığı ile paylaş
+                Bu Sayıyı Facebook aracılığı ile paylaş
                 </p>
             </HoverCardContent>
         </HoverCard>

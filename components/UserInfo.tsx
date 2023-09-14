@@ -18,7 +18,7 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, read
         <div className="flex items-center justify-between">
             <HoverCard>
                 <HoverCardTrigger>
-                <Link href='/kullanici' className="flex items-center gap-2 cursor-pointer">
+                <Link href='/yazar/ysf' className="flex items-center gap-2 cursor-pointer">
                     <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden")}>
                         <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                     </div>

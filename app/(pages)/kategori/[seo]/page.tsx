@@ -3,6 +3,7 @@ import CategoryPage from "@/components/pages/Category"
 
 
 const Page = async ({ params }: { params: { seo: string } }) => {
+
   return (
     <ClientOnly>
       <CategoryPage

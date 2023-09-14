@@ -29,7 +29,7 @@ const Comments = () => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <Textarea placeholder="Yorum yap..." className="resize-none rounded-xl h-32"/>
+                <Textarea placeholder="Yorum yap..." className="!resize-none rounded-xl h-32 max-h-32"/>
                 <div className="flex justify-end">
                     <Button>
                         Yorum Yap
