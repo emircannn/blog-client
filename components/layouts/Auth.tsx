@@ -3,6 +3,7 @@ import { Button } from "../ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
 import { Input } from "../ui/input"
+import Link from "next/link"
 
 const Auth = () => {
   return (
@@ -25,11 +26,12 @@ const Auth = () => {
             <TabsList>
                 <TabsTrigger value="login">Giriş Yap</TabsTrigger>
                 <TabsTrigger value="register">Kaydol</TabsTrigger>
+                <TabsTrigger value="password">Şifremi Unuttum</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login" className="flex flex-col gap-3 w-full sm:w-[65%]">
-                <Input placeholder="Email"/>
-                <Input placeholder="******"/>
+                <Input type="email" placeholder="Email"/>
+                <Input type="password" placeholder="******"/>
                 <Button>
                     Giriş Yap
                 </Button>
@@ -38,9 +40,9 @@ const Auth = () => {
             <TabsContent value="register" className="flex flex-col gap-3 w-full sm:w-[65%]">
                 <Input placeholder="İsim Soyisim"/>
                 <Input placeholder="Kullanıcı Adı"/>
-                <Input placeholder="Email"/>
-                <Input placeholder="Şifre"/>
-                <Input placeholder="Şifre Tekrarı"/>
+                <Input type="email" placeholder="Email"/>
+                <Input type="password" placeholder="Şifre"/>
+                <Input type="password" placeholder="Şifre Tekrarı"/>
                 <Button variant='secondary'>
                     Kaydol
                 </Button>

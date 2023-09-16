@@ -35,11 +35,11 @@ const ArticlePage: React.FC<Props> = ({seo}) => {
                     <Share/>
                 </aside>
 
-                <p className="col-span-5 sm:col-span-4 text-sm sm:text-base">{TextPlaceholder}</p>
+                <p className="col-span-5 sm:col-span-4 text-sm !leading-[22.4px] sm:!leading-[25.5px] sm:text-base">{TextPlaceholder}</p>
             </div>
         <div className="p-2 sm:p-5 rounded-xl bg-white dark:bg-darkColor w-full col-span-4 lg:col-span-3 gap-3 flex flex-col">
             <p className="font-semibold text-sm">Notlar</p>
-            <p className="text-xs sm:text-sm">
+            <p className="text-xs sm:text-sm !leading-[19.2px] sm:!leading-[22.4px]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias velit mollitia aliquam corrupti in aut fuga tempore dolorem assumenda deserunt!
             </p>
         </div>
