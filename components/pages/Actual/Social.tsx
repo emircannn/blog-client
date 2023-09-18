@@ -6,7 +6,7 @@ interface Props {
     height?: number
 }
 
-const Social: React.FC<Props> = ({height=460}) => {
+const Social: React.FC<Props> = ({height=300}) => {
   return (
     <>
     <div className="rounded-xl overflow-hidden hidden dark:inline-block">

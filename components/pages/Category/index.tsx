@@ -8,7 +8,7 @@ interface Props {
 const CategoryPage: React.FC<Props> = ({seo}) => {
   return (
     <section className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
-        <main className="col-span-4 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 !max-h-fit">
+        <main className="col-span-4 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-3 !max-h-fit">
             <Article/>
             <Article/>
             <Article/>

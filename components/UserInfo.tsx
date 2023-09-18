@@ -15,7 +15,7 @@ interface Props {
 
 const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, readCount=true}) => {
     return ( 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center flex-wrap gap-2">
             <HoverCard>
                 <HoverCardTrigger>
                 <Link href='/yazar/ysf' className="flex items-center gap-2 cursor-pointer">
@@ -23,7 +23,6 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, read
                         <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
                     </div>
                     <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>Yusuf İslam</span>
-                    {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>}
                 </Link>
                 </HoverCardTrigger>
 
@@ -47,9 +46,10 @@ const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, read
                     </div>
                 </HoverCardContent>
             </HoverCard>
+            {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>}
 
             {readCount &&
-            <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60 max-lg:hidden`}>
+            <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60`}>
             1.8b okunma
             </div>}
         </div>

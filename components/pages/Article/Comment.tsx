@@ -10,6 +10,7 @@ const Comment = () => {
                 <AvatarImage src='/images/text.jpg'/>
             </Avatar>
             <span className="text-sm font-semibold">Emircan Yaşar</span>
+            <span className="text-xs font-medium sm:text-sm opacity-60">18/09/23</span>
         </div>
 
         <p className="text-xs sm:text-sm opacity-60 font-medium">

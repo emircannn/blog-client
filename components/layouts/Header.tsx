@@ -3,7 +3,6 @@
 import Logo from "../logo";
 import SearchModal from "../modals/SearchModal";
 import { ModeToggle } from "../themeToggle";
-import Auth from "./Auth";
 import Navbar from "./Navbar";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 
@@ -38,7 +37,6 @@ const Header = () => {
                 <div className="max-md:hidden">
                 <ModeToggle/>
                 </div>
-                <Auth/>
                 <ResponsiveNavbar/>
             </div>
         </div>
