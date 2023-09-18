@@ -1,14 +1,14 @@
 'use client'
 
 import { MoveUp } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const GoTop = () => {
 
     const [isTop, setIsTop] = useState(true)
 
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
+    window?.addEventListener('scroll', () => {
+        const currentScrollY = window?.scrollY;
         if (currentScrollY > 600) {
             setIsTop(false)
         }
