@@ -10,7 +10,7 @@ const SayiPage = () => {
         <main className="col-span-4 lg:col-span-3 rounded-xl p-2 md:p-5 backgroundColor flex flex-col gap-4 !max-h-fit">
           <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="heading">Kafkasya Sayısı</h1>
+            <h1 className="heading">Örnek Sayı</h1>
             <span className="text-xs sm:text-sm font-medium opacity-60">15/10/2023</span>
           </div>
             <span className="text-xs sm:text-sm font-medium opacity-60">1.8b okunma</span>

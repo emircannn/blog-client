@@ -22,7 +22,7 @@ const Categories = () => {
                 <div className='w-full rounded-xl backgroundColor p-3 flex items-center justify-between gap-4'>
                     <span className='flex items-center gap-3'>
                     <Twitter size={28}/>
-                    <span className='font-medium cursor-pointer hover:underline duration-300'>@mesniu_0</span>
+                    <span className='font-medium cursor-pointer hover:underline duration-300'>@ornek</span>
                     </span>
 
                     <button className='p-3 rounded-full hover:bg-white hover:dark:bg-darkerColor duration-300'>
@@ -32,7 +32,7 @@ const Categories = () => {
                 <div className='w-full rounded-xl backgroundColor p-3 flex items-center justify-between gap-4'>
                     <span className='flex items-center gap-3'>
                     <Instagram size={28}/>
-                    <span className='font-medium cursor-pointer hover:underline duration-300'>@muverrih0</span>
+                    <span className='font-medium cursor-pointer hover:underline duration-300'>@ornek</span>
                     </span>
 
                     <button className='p-3 rounded-full hover:bg-white hover:dark:bg-darkerColor duration-300'>

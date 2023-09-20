@@ -13,7 +13,7 @@ const Share = () => {
         <div className="flex items-center justify-center gap-4">
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'mesniu_0', _title: 'Türk Milliyetçiliğinin Meseleleri', platform: 'twitter'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'twitter'})}>
                 <Twitter/>
             </Button>
             </HoverCardTrigger>
@@ -25,7 +25,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'mesniu_0', _title: 'Türk Milliyetçiliğinin Meseleleri', platform: 'whatsapp'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'whatsapp'})}>
                 <MessageCircle/>
             </Button>
             </HoverCardTrigger>
@@ -37,7 +37,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'mesniu_0', _title: 'Türk Milliyetçiliğinin Meseleleri', platform: 'facebook'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'facebook'})}>
                 <Facebook/>
             </Button>
             </HoverCardTrigger>

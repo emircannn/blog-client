@@ -9,15 +9,15 @@ const Footer = () => {
     const currentYear = currentDate.getFullYear();
 
     const info = [
-        {label: '@mesniu_0', icon: <Twitter/>, href: 'https://twitter.com/mesniu_0'},
-        {label: '@muverrih0', icon: <Instagram/>, href: 'https://www.instagram.com/muverrih0/'},
+        {label: '@ornek', icon: <Twitter/>, href: 'https://twitter.com/elonmusk'},
+        {label: '@ornek', icon: <Instagram/>, href: 'https://www.instagram.com/elonmusk/'},
         {label: 'test@test.com', icon: <Mail/>, href: 'mailto:destek@example.com'},
         {label: '05525779332', icon: <Phone/>, href: 'tel:05525779332'},
     ]
     const sayilar = [
-        {label: 'Kırım Sayısı', href: '/sayilar/kirim_sayisi'},
-        {label: 'Türkistan Sayısı', href: '/sayilar/turkistan_sayisi'},
-        {label: 'Kafkasya Sayısı', href: '/sayilar/kafkasya_sayisi'},
+        {label: 'Örnek Sayı 1', href: '/sayilar/ornek1'},
+        {label: 'Örnek Sayı 2', href: '/sayilar/ornek2'},
+        {label: 'Örnek Sayı 3', href: '/sayilar/ornek3'},
     ]
     const categories = [
         {label: 'Tarih', href: '/kategori/tarih'},

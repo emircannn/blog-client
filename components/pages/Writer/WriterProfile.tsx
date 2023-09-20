@@ -17,8 +17,8 @@ const WriterProfile = () => {
 
         <div className="mt-11 flex flex-col text-center gap-3">
             <div className="flex flex-col gap-1">
-            <h1 className="heading">Yusuf İslam Gül</h1>
-            <h2 className="text-xs sm:text-sm font-semibold opacity-60">@yusufislam</h2>
+            <h1 className="heading">Editör</h1>
+            <h2 className="text-xs sm:text-sm font-semibold opacity-60">@editor</h2>
             </div>
 
             <div className="flex flex-col gap-1">

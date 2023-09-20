@@ -8,7 +8,7 @@ const Article = () => {
     return ( 
         <div className="w-full rounded-xl">
             <Link href='/yazi/test' className="w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden relative flex">
-            <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+            <Image alt="banner" src='/images/test2.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                     <span className="absolute top-1 left-1 sm:top-2 sm:left-2">
                     <Badge>
                         Tarih

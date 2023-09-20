@@ -19,7 +19,7 @@ const SmallWrapper = () => {
                     <UserInfo/>
                     </div>
                     <Link href='/yazi/test' className="min-h-full w-1/3 shrink-0 rounded-xl overflow-hidden relative">
-                    <Image alt="banner" src='/images/test.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+                    <Image alt="banner" src='/images/test2.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                     </Link>
                 </div>
      );

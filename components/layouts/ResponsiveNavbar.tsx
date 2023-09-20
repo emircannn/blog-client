@@ -7,23 +7,13 @@ import Logo from "../logo";
 import { ModeToggle } from "../themeToggle";
 import ListItem from "./ResNavLi";
 
-const ResponsiveNavbar = () => {
+interface NavItem {
+    label: string;
+    href: string;
+    dropdown?: NavItem[];
+  }
+const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
     const [open, setOpen] = useState(false)
-
-    const navbar = [
-        {label: 'Ana Sayfa', href: '/',},
-        {label: 'Sayılar', href: '/sayilar', dropdown: [
-            {label: 'Kırım Sayısı', href: '/sayi/kirim'},
-            {label: 'Türkistan Sayısı', href: '/sayi/turkistan'},
-        ]},
-        {label: 'Kategoriler', href: '/', dropdown: [
-            {label: 'Tarih', href: '/kategori/tarih'},
-            {label: 'Siyaset', href: '/kategori/siyaset'},
-            {label: 'Felsefe', href: '/kategori/felsefe'},
-            {label: 'Aktüel', href: '/aktuel'},
-        ]},
-        {label: 'Hakkımızda', href: '/',},
-    ]
 
     return ( 
     <>
@@ -64,7 +54,7 @@ const ResponsiveNavbar = () => {
         <hr />
 
         <ul className="flex flex-col w-full">
-            {navbar?.map((item, i) => (
+            {items?.map((item, i) => (
                 <ListItem
                 label={item.label}
                 href={item.href}

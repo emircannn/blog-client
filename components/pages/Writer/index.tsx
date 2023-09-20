@@ -24,7 +24,7 @@ const WriterPage = () => {
                 showUserInfo={false}
                 showBadge/>
             </main>
-            <h3 className="heading">Yazarın katkı sağladığı Sayılar</h3>
+            <h3 className="heading">Yazarın Katkı Sağladığı Sayılar</h3>
 
             <div className="flex flex-col gap-3">
                 <WriterSubjects/>

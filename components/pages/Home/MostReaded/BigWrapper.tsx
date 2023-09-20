@@ -9,7 +9,7 @@ const BigWrapper = () => {
         <div className="w-full h-full backgroundColor rounded-xl p-2 flex flex-col">
                     <div className="w-full aspect-video shrink-0 rounded-xl relative overflow-hidden">
                         <Link href='yazi/test' className="w-full h-full">
-                            <Image alt="banner" src='/images/test.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+                            <Image alt="banner" src='/images/test2.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                         </Link>
                     <span className="absolute top-2 left-2">
                         <Badge>

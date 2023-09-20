@@ -11,8 +11,8 @@ const Header = () => {
     const navbar = [
         {label: 'Ana Sayfa', href: '/',},
         {label: 'Sayılar', href: '/sayilar', dropdown: [
-            {label: 'Kırım Sayısı', href: '/sayi/kirim'},
-            {label: 'Türkistan Sayısı', href: '/sayi/turkistan'},
+            {label: 'Örnek Sayı 1', href: '/sayi/test'},
+            {label: 'Örnek Sayı 2', href: '/sayi/test'},
         ]},
         {label: 'Kategoriler', href: '/', dropdown: [
             {label: 'Tarih', href: '/kategori/tarih'},
@@ -37,7 +37,9 @@ const Header = () => {
                 <div className="max-md:hidden">
                 <ModeToggle/>
                 </div>
-                <ResponsiveNavbar/>
+                <ResponsiveNavbar
+                items={navbar}
+                />
             </div>
         </div>
     </header>

@@ -18,8 +18,8 @@ const Writer = () => {
             </div>
 
             <div className="w-full h-[60%] md:h-1/2 pt-8 md:pt-14 px-4 pb-4 flex flex-col gap-2 text-center">
-                <p className="line-clamp-1 font-semibold text-sm sm:text-base hover:underline duration-300">Yusuf İslam</p>
-                <p className="line-clamp-1 font-semibold text-xs sm:text-sm opacity-60">@yusufislam</p>
+                <p className="line-clamp-1 font-semibold text-sm sm:text-base hover:underline duration-300">Editör</p>
+                <p className="line-clamp-1 font-semibold text-xs sm:text-sm opacity-60">@editor</p>
             </div>
         </div>
     </Link>

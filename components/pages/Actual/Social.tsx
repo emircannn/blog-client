@@ -12,7 +12,7 @@ const Social: React.FC<Props> = ({height=300}) => {
     <div className="rounded-xl overflow-hidden hidden dark:inline-block">
         <TwitterTimelineEmbed
         sourceType="profile"
-        screenName="mesniu_0"
+        screenName="nazariyatdergi"
         theme="dark"
         noScrollbar
         options={{height: height}}
@@ -21,7 +21,7 @@ const Social: React.FC<Props> = ({height=300}) => {
         <div className="rounded-xl overflow-hidden dark:hidden">
         <TwitterTimelineEmbed
         sourceType="profile"
-        screenName="mesniu_0"
+        screenName="nazariyatdergi"
         noScrollbar
         theme="light"
         options={{height: height}}
