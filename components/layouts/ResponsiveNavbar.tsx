@@ -8,8 +8,8 @@ import { ModeToggle } from "../themeToggle";
 import ListItem from "./ResNavLi";
 
 interface NavItem {
-    label: string;
-    href: string;
+    name: string;
+    seo: string;
     dropdown?: NavItem[];
   }
 const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
@@ -56,8 +56,8 @@ const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
         <ul className="flex flex-col w-full">
             {items?.map((item, i) => (
                 <ListItem
-                label={item.label}
-                href={item.href}
+                name={item.name}
+                seo={item.seo}
                 dropdown={item.dropdown}
                 key={i}
                 />

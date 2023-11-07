@@ -1,18 +1,39 @@
 
 import Article from "./Article";
 
-const LastArticles = () => {
+interface Props{
+    data: Texts[]
+}
+
+const LastArticles: React.FC<Props> = ({
+    data
+}) => {
     return ( 
         <main className="flex flex-col gap-4 container">
             <h5 className="heading">Son Yazılar</h5>
 
-            <article className="grid grid-cols-1 400:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-                <Article/>
-                <Article/>
-                <Article/>
+            <article className="grid grid-cols-1 400:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-md:hidden">
+                {data?.length > 0 &&
+                data.slice(0, 3).map((_,i) => (
+                    <Article
+                    data={_}
+                    key={i}
+                    />
+                ))
+                }
+            </article>
+            <article className="grid grid-cols-1 400:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 md:hidden">
+                {data?.length > 0 &&
+                data.map((_,i) => (
+                    <Article
+                    data={_}
+                    key={i}
+                    />
+                ))
+                }
             </article>
         </main>
      );
 }
- 
+
 export default LastArticles;

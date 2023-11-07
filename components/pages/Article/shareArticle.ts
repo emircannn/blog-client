@@ -1,9 +1,9 @@
 
 interface Props {
-    userProfile?: string,
-    _title?: string,
-    pathname?: string,
-    platform?: string
+    userProfile?: string | null,
+    _title?: string | null,
+    pathname?: string | null,
+    platform?: string | null
 }
 
 export function share({

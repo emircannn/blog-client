@@ -1,26 +1,67 @@
-'use client'
 
 import Logo from "../logo";
-import SearchModal from "../modals/SearchModal";
 import { ModeToggle } from "../themeToggle";
 import Navbar from "./Navbar";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 
-const Header = () => {
+export const getSettings = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/settings`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const getMagazineHeader = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMagazineHeader`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const getCategoryHeader = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getCategoryHeader`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const Header = async() => {
+
+    const data = getMagazineHeader();
+    const data2 = getCategoryHeader();
+
+    const [magazines, category] = await Promise.all([data, data2])
+
+    const categories = [{name: 'Aktüel', seo: `/aktuel`}, {name: 'Tüm Yazılar', seo: `/yazilar`}]
+    const newData = category?.map((item: CategoryType) => ({
+        ...item,
+        seo: `/kategori/${item.seo}`
+    }));
+    const mergedCategories = newData?.concat(categories)
 
     const navbar = [
-        {label: 'Ana Sayfa', href: '/',},
-        {label: 'Sayılar', href: '/sayilar', dropdown: [
-            {label: 'Örnek Sayı 1', href: '/sayi/test'},
-            {label: 'Örnek Sayı 2', href: '/sayi/test'},
-        ]},
-        {label: 'Kategoriler', href: '/', dropdown: [
-            {label: 'Tarih', href: '/kategori/tarih'},
-            {label: 'Siyaset', href: '/kategori/siyaset'},
-            {label: 'Felsefe', href: '/kategori/felsefe'},
-            {label: 'Aktüel', href: '/aktuel'},
-        ]},
-        {label: 'Hakkımızda', href: '/',},
+        {name: 'Ana Sayfa', seo: '/',},
+        {name: 'Sayılar', seo: '/sayilar', dropdown: magazines?.map((data: Magazine) => (
+            {name: data.title, seo: `/sayi/${data.seo}`}
+        ))},
+        {name: 'Kategoriler', seo: '/', dropdown: mergedCategories},
+        {name: 'Hakkımızda', seo: '/hakkimizda',},
     ]
 
     return ( 
@@ -37,7 +78,7 @@ const Header = () => {
             </div>
 
             <div className="flex items-center gap-3 w-1/2 md:w-[20%] justify-end">
-                <SearchModal/>
+                {/* <SearchModal/> */}
                 <div className="max-md:hidden">
                 <ModeToggle/>
                 </div>

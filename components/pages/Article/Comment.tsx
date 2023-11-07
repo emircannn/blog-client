@@ -1,20 +1,23 @@
 'use client'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { dateFormater } from "@/components/utils"
 
-const Comment = () => {
+interface Props {
+  data: Comment
+}
+
+const Comment: React.FC<Props> = ({
+  data
+}) => {
   return (
     <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
-            <Avatar>
-                <AvatarImage src='/images/text.jpg'/>
-            </Avatar>
-            <span className="text-sm font-semibold">Emircan Yaşar</span>
-            <span className="text-xs font-medium sm:text-sm opacity-60">18/09/23</span>
+            <span className="text-sm font-semibold">{data.name}</span>
+            <span className="text-xs font-medium sm:text-sm opacity-60">{dateFormater(data.createdAt)}</span>
         </div>
 
         <p className="text-xs sm:text-sm opacity-60 font-medium">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima quod, debitis ratione quos ipsa atque totam! Voluptas recusandae officiis explicabo doloremque similique, magnam rem officia.
+          {data.comment}
         </p>
     </div>
   )

@@ -3,14 +3,15 @@
 import { ArrowRight, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
+import Link from "next/link";
 
 interface NavItemProps {
-    label: string;
-    href: string;
+    name: string;
+    seo: string;
     dropdown?: NavItemProps[];
   }
 
-const ListItem: React.FC<NavItemProps> = ({label, href, dropdown}) => {
+const ListItem: React.FC<NavItemProps> = ({name, seo, dropdown}) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return ( 
@@ -21,7 +22,7 @@ const ListItem: React.FC<NavItemProps> = ({label, href, dropdown}) => {
     >
     <div className="flex flex-col w-full">
     <div className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
-        <a href={href} className="font-semibold ">{label}</a>
+        <Link href={seo} className="font-semibold ">{name}</Link>
         {dropdown && 
         <CollapsibleTrigger asChild>
         <ChevronsUpDown className="cursor-pointer"/>
@@ -32,10 +33,10 @@ const ListItem: React.FC<NavItemProps> = ({label, href, dropdown}) => {
     <CollapsibleContent>
         {dropdown?.map((item, i) => (
             <div key={i} className="flex flex-col pl-3">
-            <a href={item.href} className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
-                <span className="font-semibold ">{item.label}</span>
+            <Link href={item.seo} className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
+                <span className="font-semibold ">{item.name}</span>
                 <ArrowRight className="cursor-pointer"/>
-            </a>
+            </Link>
         </div>
         ))}
     </CollapsibleContent>

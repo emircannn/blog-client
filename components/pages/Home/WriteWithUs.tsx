@@ -1,9 +1,15 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
+interface Props {
+  data: Settings
+}
 
-const WriteWithUs = () => {
+const WriteWithUs: React.FC<Props> = ({
+  data
+}) => {
   return (
     <div className="container">
         <div className=" backgroundColor py-5 px-6 md:px-12 flex max-md:flex-col-reverse items-center gap-4 rounded-2xl">
@@ -16,11 +22,11 @@ const WriteWithUs = () => {
             Değerlendirilmek ve sonrasında yayımlamak için yazı havuzumuza güncel politik yazılarınızı gönderebilirsiniz. Detaylı bilgi için iletişime geçiniz.
             </p>
 
-            <div>
+            <Link target="_blank" href={`mailto:${data.email}`}>
             <Button className="bg-thirth dark:bg-thirth" size='lg'>
                 İletişime Geçiniz
             </Button>
-            </div>
+            </Link>
         </div>
         <div className="w-1/2 max-md:w-full aspect-square overflow-hidden relative">
             <Image alt="writeWithus" fill quality={100} className="object-contain" src='/images/writewithus.webp'/>

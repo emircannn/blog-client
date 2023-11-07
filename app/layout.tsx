@@ -8,6 +8,7 @@ const font = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from '@/components/layouts/Footer'
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'Blog Site',
@@ -30,6 +31,7 @@ export default function RootLayout({
         storageKey='theme'
         >
           <Header/>
+          <Toaster />
             {children}
           <Footer/>
         </ThemeProvider>

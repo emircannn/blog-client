@@ -4,22 +4,28 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
 
-const Article = () => {
+interface Props {
+    data: Texts
+}
+
+const Article: React.FC<Props> = ({
+    data
+}) => {
     return ( 
         <div className="w-full rounded-xl">
-            <Link href='/yazi/test' className="w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden relative flex">
-            <Image alt="banner" src='/images/test2.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+            <Link href={`/yazi/${data?.seo}`} className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex shadow-md">
+            <Image alt="banner" src={data?.image} fill quality={100} className="object-cover hover:scale-105 duration-300 "/>
                     <span className="absolute top-1 left-1 sm:top-2 sm:left-2">
                     <Badge>
-                        Tarih
+                        {data?.category.name}
                     </Badge>
                     </span>
             </Link>
             <div className="p-2 pb-0 flex flex-col gap-3">
-                <Link href='/yazi/test' className="articleHeading hover:underline duration-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <Link href={`/yazi/${data?.seo}`} className="articleHeading hover:underline duration-300  h-fit md:h-[48px] line-clamp-2 overflow-hidden">
+                    {data?.title}
                 </Link>
-                <UserInfo/>
+                <UserInfo data={data?.user} date={data?.createdAt} readCount={data?.readCount}/>
             </div>
         </div>
      );

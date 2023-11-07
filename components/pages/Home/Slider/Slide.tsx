@@ -4,15 +4,9 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-interface DataItem {
-    title?: string;
-    text?: string;
-    image: string;
-  }
-  
   interface Props {
-    item: DataItem;
-  }
+    item: Texts;
+}
 
 const Slide: React.FC<Props> = ({item}) => {
     return ( 
@@ -23,13 +17,12 @@ const Slide: React.FC<Props> = ({item}) => {
             <div className="max-w-[1280px] w-full flex md:aspect-[3/1] gap-3 bg-white dark:bg-darkerColor z-10 rounded-xl p-5">
                 <div className="w-[45%] h-full flex flex-col gap-4 p-3 2xl:p-5 pb-0 2xl:pb-0">
                     <h2 className="font-bold 2xl:text-xl line-clamp-2 shrink-0">{item?.title}</h2>
-                    <p className="overflow-hidden h-full text-[14px] 2xl:text-base">
-                        {item?.text}
-                    </p>
+                    <p className="overflow-hidden h-full text-[14px] 2xl:text-base"
+                    dangerouslySetInnerHTML={{ __html: item.text }} />
 
                     <div className="shrink-0">
                         <Button size='lg'>
-                            <Link href='/yazi/test'>
+                            <Link href={`/yazi/${item.seo}`}>
                             Devamını Oku
                             </Link>
                         </Button>

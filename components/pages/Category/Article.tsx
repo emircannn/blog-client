@@ -4,28 +4,27 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface Props {
-    showUserInfo?: boolean
-    showBadge?: boolean
+    showBadge?: boolean,
+    data: Texts
 }
 
-const Article: React.FC<Props> = ({showUserInfo=true, showBadge}) => {
+const Article: React.FC<Props> = ({ showBadge,data}) => {
   return (
     <div className="w-full rounded-xl">
-            <Link href='/yazi/test' className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex">
-            <Image alt="banner" src='/images/test2.jpg' fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+            <Link href={`/yazi/${data.seo}`} className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex">
+            <Image alt="banner" src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
             </Link>
             <div className="p-2 pb-0 flex flex-col gap-3">
                 {showBadge &&
                 <span>
                     <Badge>
-                        Tarih
+                        {data.category.name}
                     </Badge>
                 </span>}
-                <Link href='/yazi/test' className="articleHeading hover:underline duration-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <Link href={`/yazi/${data?.seo}`} className="articleHeading hover:underline duration-300  h-fit md:h-[48px] line-clamp-2 overflow-hidden">
+                    {data?.title}
                 </Link>
-                {showUserInfo && 
-                <UserInfo/>}
+                <UserInfo data={data?.user} date={data?.createdAt} readCount={data?.readCount}/>
             </div>
         </div>
   )

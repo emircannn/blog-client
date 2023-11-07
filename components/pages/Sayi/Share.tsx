@@ -1,11 +1,17 @@
 'use client'
-import { Button } from "@/components/ui/button"
-import { Facebook, MessageCircle, Twitter } from "lucide-react"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { share } from "../Article/shareArticle"
+import { Facebook, MessageCircle, Twitter } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 
-const Share = () => {
+interface Props {
+    data: Magazine
+}
+const Share: React.FC<Props> = ({
+    data
+}) => {
+
   return (
     <div className="flex flex-col gap-4 items-center rounded-xl p-3">
         <h6 className="text-sm font-semibold uppercase">Paylaş</h6>
@@ -13,7 +19,7 @@ const Share = () => {
         <div className="flex items-center justify-center gap-4">
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'twitter'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'zincirkiran_net', _title: data.title, platform: 'twitter'})}>
                 <Twitter/>
             </Button>
             </HoverCardTrigger>
@@ -25,7 +31,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'whatsapp'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data.title, platform: 'whatsapp'})}>
                 <MessageCircle/>
             </Button>
             </HoverCardTrigger>
@@ -37,7 +43,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'facebook'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data.title, platform: 'facebook'})}>
                 <Facebook/>
             </Button>
             </HoverCardTrigger>

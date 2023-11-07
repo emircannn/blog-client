@@ -1,5 +1,4 @@
-'use client'
-
+import { getSettings } from "@/components/layouts/Header";
 import Actual from "./Actual";
 import Categories from "./Categories";
 import LastArticles from "./LastArticles";
@@ -9,35 +8,123 @@ import SliderWrapper from "./Slider/SliderWrapper";
 import WriteWithUs from "./WriteWithUs";
 import Writers from "./Writers";
 
-const HomePage = () => {
+const getSlider = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/getSlider`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
+const getMostReaded = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMostReaded`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
+const getLastLoaded = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getLastLoaded`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
+const getLastActual = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getLastActual`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
+const getCategories = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getCategories`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
+const getMagazines = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMagazines`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
+const getEditors = async() => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getEditors`, {
+            cache: 'no-cache'
+        }).then((res) => res.json()).then((data) => {
+            return data.data
+        })
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+  }
 
-    const data = [
-        {title: `İstanbul'un Fethi`, text: ` 1453 yılında İstanbul, Büyük İskender'den beri birçok imparatorluğun hedefi olmuştu. Ancak bu tarih, Fatih Sultan Mehmet'in kahramanca liderliği altında gerçekleşen unutulmaz bir zaferin başlangıcıydı. 6 Nisan'da başlayan kuşatma, 29 Mayıs'ta zaferle sonuçlandı.
-        Fatih Sultan Mehmet'in kararlılığı ve ordusunun cesareti, şehrin surlarını aşmayı başardı. Topkapı Sarayı'ndan Aya İrini'ye kadar uzanan surların düşüşü, İstanbul'u fethin simgesi haline getirdi.
-        Fetih günü, İstanbul halkı için yeni bir başlangıçtı. Ayasofya camiye çevrildi ve şehir, İslam'ın merkezi haline geldi. İstanbul, Osmanlı İmparatorluğu'nun başkenti oldu ve 16. yüzyılda dünyanın en büyük şehirlerinden biri haline geldi.
-        İstanbul'un fethi, tarih boyunca büyük bir öneme sahiptir. Fatih Sultan Mehmet'in cesareti ve vizyonu, İstanbul'u hem kültürel hem de stratejik anlamda dünya sahnesinde öne çıkardı. Bu zafer, İstanbul'un köprü olduğu Batı ve Doğu'nun buluştuğu bir nokta olarak tarihe yazıldı ve hala büyüleyici bir geçmişi hatırlatır.`, image: '/images/text.jpg'},
-        {title: 'Kanuni Sultan Süleyman', text: `Kanuni Sultan Süleyman, Osmanlı İmparatorluğu'nun en büyük hükümdarlarından biriydi. 1520-1566 yılları arasında tahtta kalan Sultan Süleyman, adaleti ve kültürel gelişmeyi teşvik etti. "Muhteşem Süleyman" olarak da bilinen hükümdar, güçlü bir ordu kurdu ve Osmanlı İmparatorluğu'nu zirveye taşıdı. Ayrıca, ünlü şair Rumi ve sanatçılara da büyük destek verdi. Kanuni Sultan Süleyman, Osmanlı tarihinde eşsiz bir lider olarak hatırlanır.`, image: '/images/test.jpg'}
-    ]
+const HomePage = async() => {
+
+    const data = getSlider();
+    const data2 = getMostReaded();
+    const data3 = getLastLoaded();
+    const data4 = getLastActual();
+    const data5 = getMagazines();
+    const data6 = getCategories();
+    const data7 = getEditors();
+    const data8 = getSettings();
+
+    const [slider, mostReaded, lastLoaded, actual, magazines, categories, editors, settings] = await Promise.all([data, data2, data3, data4, data5, data6, data7, data8])
+
+    
 
     return ( 
     <div className="flex flex-col gap-5 lg:gap-8 pb-5">
-        <SliderWrapper
-            data={data}
-        />
-        <ResponsiveSlider
-        data={data}/>
+        <SliderWrapper data={slider}/>
 
-        <MostReaded/>
+        <ResponsiveSlider data={slider}/>
 
-        <LastArticles/>
+        <MostReaded data={mostReaded}/>
 
-        <Writers/>
+        <LastArticles data={lastLoaded}/>
 
-        <Actual/>
+        <Writers data={editors}/>
 
-        <WriteWithUs/>
+        <Actual data={actual} magazines={magazines} settings={settings}/>
 
-        <Categories/>
+        <WriteWithUs data={settings}/>
+
+        <Categories data={categories} settings={settings}/>
     </div> 
     );
 }

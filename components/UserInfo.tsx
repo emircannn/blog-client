@@ -3,55 +3,84 @@ import Image from "next/image";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
-import { Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import { dateFormater, formatReadCount } from "./utils";
+import { getSettings } from "@/components/layouts/Header";
 
 interface Props {
     className?: string;
     lg?: boolean ,
-    date?: boolean ,
-    readCount?: boolean
+    date?: string ,
+    readCount?: number,
+    data: User
 }
 
-const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date=true, readCount=true}) => {
+const UserInfo: React.FC<Props> = async({className = 'w-7', lg=false, date, readCount, data}) => {
+    const res = getSettings();
+
+    const [settings] = await Promise.all([res])
     return ( 
         <div className="flex items-center flex-wrap gap-2">
             <HoverCard>
                 <HoverCardTrigger>
-                <Link href='/yazar/test' className="flex items-center gap-2 cursor-pointer">
-                    <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden")}>
-                        <Image alt="banner" src='/images/user.png' fill quality={100} className="object-cover"/>
+                <Link href={`/yazar/${data?.username}`} className="flex items-center gap-2 cursor-pointer">
+                    <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden shadow-md")}>
+                        <Image alt="banner" src={data?.image ? data.image: '/images/logo.png'} fill quality={100} className="object-cover"/>
                     </div>
-                    <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>Editör</span>
+                    <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>{data?.name}</span>
                 </Link>
                 </HoverCardTrigger>
 
                 <HoverCardContent className="backgroundColor border dark:border-darkerColor/60 shadow-md w-80">
                     <div className="flex space-x-4">
                         <Avatar>
-                            <AvatarImage src="/images/user.png"/>
+                            <AvatarImage src={data?.image ? data.image: '/images/logo.png'}/>
                         </Avatar>
                         <div className="space-y-1">
-                            <h4 className="text-sm font-semibold line-clamp-1">Editör - @editör</h4>
+                            <h4 className="text-sm font-semibold line-clamp-1">{data?.name} - @{data?.username}</h4>
                             <p className="text-xs line-clamp-2">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum fuga est neque, cum nisi tempora!
+                                {data?.about}
                             </p>
 
                             <div className="flex items-center gap-2 mt-2">
-                                <Link href=''>
+                                {data?.twitterLink &&
+                                <Link target="_blank" href={data?.twitterLink}>
                                     <Twitter size={20} className="duration-300 hover:opacity-60"/>
                                 </Link>
+                                }
+                                {data?.instagramLink &&
+                                <Link target="_blank" href={data?.instagramLink}>
+                                    <Instagram size={20} className="duration-300 hover:opacity-60"/>
+                                </Link>
+                                }
+                                {data?.facebookLink &&
+                                <Link target="_blank" href={data?.facebookLink}>
+                                    <Facebook size={20} className="duration-300 hover:opacity-60"/>
+                                </Link>
+                                }
+                                {data?.youtubeLink &&
+                                <Link target="_blank" href={data?.youtubeLink}>
+                                    <Youtube size={20} className="duration-300 hover:opacity-60"/>
+                                </Link>
+                                }
                             </div>
                         </div>
                     </div>
                 </HoverCardContent>
             </HoverCard>
-            {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>10/09/2023</span>}
+            {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>{dateFormater(date)}</span>}
 
-            {readCount &&
+            {settings.showReadCount ?
+            readCount && readCount > 0 ?
             <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60`}>
-            1.8b okunma
-            </div>}
+            {formatReadCount(readCount)} okunma
+            </div>
+            :
+            <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60`}>
+            0 okunma
+            </div>
+            : null}
         </div>
      );
 }

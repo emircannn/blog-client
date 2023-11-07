@@ -4,8 +4,12 @@ import { Facebook, MessageCircle, Twitter } from "lucide-react"
 import { share } from "./shareArticle"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 
-
-const Share = () => {
+interface Props {
+    data: Actual
+}
+const Share: React.FC<Props> = ({
+    data
+}) => {
   return (
     <div className="flex flex-col gap-4 items-center sticky top-[100px]">
         <h6 className="text-sm font-medium uppercase">Paylaş</h6>
@@ -13,7 +17,7 @@ const Share = () => {
         <div className="grid grid-cols-3 sm:grid-cols-2 gap-4">
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'twitter'})}>
+            <Button size='icon' onClick={() => share({userProfile: data.user.twitter && data.user.twitter, _title: data.title, platform: 'twitter'})}>
                 <Twitter/>
             </Button>
             </HoverCardTrigger>
@@ -25,7 +29,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'whatsapp'})}>
+            <Button size='icon' onClick={() => share({userProfile: data.user.name, _title: data.title, platform: 'whatsapp'})}>
                 <MessageCircle/>
             </Button>
             </HoverCardTrigger>
@@ -37,7 +41,7 @@ const Share = () => {
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'editor', _title: 'Yazı Başlığı', platform: 'facebook'})}>
+            <Button size='icon' onClick={() => share({userProfile: data.user.name, _title: data.title, platform: 'facebook'})}>
                 <Facebook/>
             </Button>
             </HoverCardTrigger>
