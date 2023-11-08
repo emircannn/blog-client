@@ -3,23 +3,23 @@ import { Skeleton } from "@/components/ui/skeleton"
 const loading = () => {
   return (
     <section className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
-        <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 col-span-4 lg:col-span-3">
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+        <main className="grid grid-cols-1 place-content-start sm:grid-cols-2 md:grid-cols-3 gap-3 col-span-4 lg:col-span-3">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
-            <div className="w-full aspect-[1/1.25] rounded-xl overflow-hidden">
+            <div className="w-full aspect-[5/3] rounded-xl overflow-hidden">
             <Skeleton className="w-full h-full"/>
             </div>
         </main>

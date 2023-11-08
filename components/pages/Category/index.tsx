@@ -5,6 +5,7 @@ import Article from "./Article"
 import axios from "axios"
 import Pagination from "@/components/Pagination"
 import LoadingScreen from "@/components/LoadingScreen"
+import { redirect } from "next/navigation"
 
 interface Props {
     seo: string
@@ -22,6 +23,9 @@ const CategoryPage: React.FC<Props> = ({seo}) => {
         try {
           setLoading(true)
           const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}category/getWithSeo?seo=${seo}&page=${page}`)
+          if(!res.data) {
+            redirect('/')
+          }
           setData(res.data)
           setLoading(false)
         } catch (error) {
@@ -36,6 +40,7 @@ const CategoryPage: React.FC<Props> = ({seo}) => {
   if(loading) {
     return <LoadingScreen/>
   }
+  
   
 
   return (

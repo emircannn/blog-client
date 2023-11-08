@@ -11,7 +11,7 @@ import Writers from "./Writers";
 const getSlider = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/getSlider`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -23,7 +23,7 @@ const getSlider = async() => {
 const getMostReaded = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMostReaded`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -35,7 +35,7 @@ const getMostReaded = async() => {
 const getLastLoaded = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getLastLoaded`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -47,7 +47,7 @@ const getLastLoaded = async() => {
 const getLastActual = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getLastActual`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -59,7 +59,7 @@ const getLastActual = async() => {
 const getCategories = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getCategories`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -71,7 +71,7 @@ const getCategories = async() => {
 const getMagazines = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMagazines`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -83,7 +83,7 @@ const getMagazines = async() => {
 const getEditors = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getEditors`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })

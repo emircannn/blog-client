@@ -7,9 +7,9 @@ import ResponsiveNavbar from "./ResponsiveNavbar";
 export const getSettings = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/settings`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*10 }
         }).then((res) => res.json()).then((data) => {
-            return data.data as Settings
+            return data.data
         })
         return res
     } catch (error) {
@@ -19,7 +19,7 @@ export const getSettings = async() => {
 export const getMagazineHeader = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMagazineHeader`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })
@@ -31,7 +31,7 @@ export const getMagazineHeader = async() => {
 export const getCategoryHeader = async() => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getCategoryHeader`, {
-            cache: 'no-cache'
+            next: { revalidate: 1*60*5 }
         }).then((res) => res.json()).then((data) => {
             return data.data
         })

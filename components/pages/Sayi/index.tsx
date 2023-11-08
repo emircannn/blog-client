@@ -32,6 +32,10 @@ const SayiPage: React.FC<Props> = ({
           <section className="sticky top-[100px] flex flex-col gap-4">
             <Cover data={data}/>
             <Share data={data}/>
+            {data.desc &&
+            <div className="w-full p-2 rounded-xl backgroundColor text-xs font-medium">
+              {data.desc}
+            </div>}
           </section>
         </aside>
     </section>

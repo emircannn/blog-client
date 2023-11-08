@@ -11,13 +11,17 @@ import Footer from '@/components/layouts/Footer'
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE}`),
   title: {
     default: 'ZİNCİRKIRAN',
     template: `%s | ZİNCİRKIRAN`
   },
   description: 'Zincirkıran Hareketi: Milliyetçi-Toplumcu bir entelijansiya hareketi olarak başkaldırıyı savunur, Türk milliyetçiliğini kurtuluş reçetesi olarak sunar.',
   creator: 'Emircan Yaşar',
-  robots: 'index, follow'
+  robots: 'index, follow',
+  verification: {
+    google: `google-site-verification=${process.env.NEXT_PUBLIC_GOOGLE}`
+  }
 }
 
 export default function RootLayout({

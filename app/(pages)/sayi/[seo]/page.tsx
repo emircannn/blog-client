@@ -31,14 +31,17 @@ interface Props {
 
     return {
       title: data.title,
-      description: seoDesc(data.desc),
+      description: data.desc || '',
       robots: 'index, follow',
       applicationName: 'ZİNCİRKIRAN',
       assets: data.image,
+      alternates: {
+        canonical: `/sayi/${data.seo}`
+      },
       openGraph: {
         type: 'website',
         title: data.title,
-        description: seoDesc(data.desc),
+        description: data.desc || '',
         siteName: "ZİNCİRKIRAN",
         images: [{
           url: data.image,

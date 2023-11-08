@@ -8,7 +8,7 @@ import {redirect} from 'next/navigation'
 const getTextWithSeo = async (seo: string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}actual/getTextWithSeo?seo=${seo}`, {
-      cache: 'no-cache'
+      next: { revalidate: 1*60*5 }
     }).then((res) => res.json()).then((data) => {
       return data.data as Actual;
     });
@@ -49,6 +49,9 @@ interface Props {
       category: 'Aktüel',
       robots: 'index, follow',
       applicationName: 'ZİNCİRKIRAN',
+      alternates: {
+        canonical: `/aktuel/${data.seo}`
+      },
       authors: {
         name: data.user.name,
         url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.user.username}`

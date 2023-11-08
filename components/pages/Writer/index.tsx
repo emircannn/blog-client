@@ -100,7 +100,7 @@ const WriterPage: React.FC<Props> = ({
             <h3 className="heading">Yazara Ait Yazılar</h3>
             <main className="col-span-4 lg:col-span-3 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 !max-h-fit">
                 {article?.map((v, i) => (
-                    <Article key={i} data={v}/>
+                    <Article key={i} data={v} showBadge/>
                 ))}
             </main>
 

@@ -6,7 +6,7 @@ import { redirect } from "next/navigation"
 const getUser = async(username: string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}user/getUser?username=${username}`, {
-        cache: 'no-cache'
+      next: { revalidate: 1*60*5 }
     }).then((res) => res.json()).then((data) => {
         return data.data as User
     })
@@ -30,9 +30,12 @@ interface Props {
 
     return {
       title: data.name,
-      description: data.about,
+      description: data?.about || '',
       robots: 'index, follow',
       applicationName: 'ZİNCİRKIRAN',
+      alternates: {
+        canonical: `/yazar/${data.username}`
+      },
       authors: {
         name: data.name,
         url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.username}`
@@ -41,7 +44,7 @@ interface Props {
       openGraph: {
         type: 'website',
         title: data.name,
-        description: data.about || '',
+        description: data?.about || '',
         siteName: "ZİNCİRKIRAN",
         images: [{
           url: data.image || '',
