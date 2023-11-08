@@ -10,13 +10,6 @@ interface Props {
     seo: string
 }
 
-interface Data {
-  data: CategoryType
-  totalPages: number
-  otherCategory: CategoryType[]
-  texts: Texts[]
-}
-
 const CategoryPage: React.FC<Props> = ({seo}) => {
 
   const [data, setData] = useState<any>()

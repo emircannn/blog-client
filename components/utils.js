@@ -15,3 +15,13 @@ export function formatReadCount(count) {
     return count?.toString();
   }
 }
+
+function etiketleriTemizle(desc) {
+  return desc.replace(/<[^>]*>/g, "");
+}
+
+
+export function seoDesc(desc) {
+  const temizMetin = etiketleriTemizle(desc);
+  return temizMetin.slice(0, 157) + '...';
+}

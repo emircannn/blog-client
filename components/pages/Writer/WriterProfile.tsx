@@ -12,11 +12,11 @@ const WriterProfile: React.FC<Props> = ({
   return (
     <div className="w-full rounded-xl p-3 backgroundColor flex flex-col gap-3">
         <div className="w-full max-md:aspect-[22/8] max-lg:aspect-[24/8] lg:aspect-video relative">
-            <Image alt="banner" src={data?.coverImage ? data.coverImage : '/images/logo.png'} fill quality={100} className="object-cover rounded-xl"/>
+            <Image alt={data.name} title={data.name} src={data?.coverImage ? data.coverImage : '/images/logo.png'} fill quality={100} className="object-cover rounded-xl"/>
 
             <div className="w-full absolute -bottom-10 left-0 flex items-center justify-center">
                     <div className="w-24 aspect-square rounded-full overflow-hidden relative border-2 border-thirth">
-                        <Image alt="banner" src={data?.image ? data.image : '/images/logo.png'} fill quality={100} className="object-cover"/>
+                        <Image alt={data.name} title={data.name} src={data?.image ? data.image : '/images/logo.png'} fill quality={100} className="object-cover"/>
                     </div>
                 </div>
         </div>

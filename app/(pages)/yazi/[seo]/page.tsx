@@ -1,14 +1,16 @@
 
 import ClientOnly from "@/components/layouts/ClientOnly"
 import ArticlePage from "@/components/pages/Article"
-
+import { seoDesc } from "@/components/utils"
+import { Metadata } from "next"
 import {redirect} from 'next/navigation'
-const getAllTexts = async(seo: string) => {
+
+const getTextWithSeo = async(seo: string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}article/getTextWithSeo?seo=${seo}`, {
         cache: 'no-cache'
     }).then((res) => res.json()).then((data) => {
-        return data.data
+        return data.data as Texts
     })
     return res
 } catch (error) {
@@ -16,8 +18,44 @@ const getAllTexts = async(seo: string) => {
 }
 }
 
+interface Props {
+  params: { seo: string }
+}
+
+  export async function generateMetadata({params}: Props): Promise<Metadata> {
+    const data = await getTextWithSeo(params.seo)
+    if(!data) return {
+      title: "Sayfa Bulunamadı",
+      description: "Üzgünüz, sayfa bulunamadı...",
+    }
+    
+
+    return {
+      title: data.title,
+      description: seoDesc(data.text),
+      category: data.category.name,
+      robots: 'index, follow',
+      applicationName: 'ZİNCİRKIRAN',
+      authors: {
+        name: data.user.name,
+        url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.user.username}`
+      },
+      assets: data.image,
+      openGraph: {
+        type: 'website',
+        title: data.title,
+        description: seoDesc(data.text),
+        siteName: "ZİNCİRKIRAN",
+        images: [{
+          url: data.image,
+        }],
+        url: `${process.env.NEXT_PUBLIC_SITE}/yazi/${data.seo}`
+      },
+    }
+  }
+
 const Page = async ({ params }: { params: { seo: string } }) => {
-  const data = await getAllTexts(params.seo)
+  const data = await getTextWithSeo(params.seo)
 
   if(!data) {
     redirect('/')

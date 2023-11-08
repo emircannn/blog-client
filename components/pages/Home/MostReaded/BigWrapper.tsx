@@ -14,7 +14,7 @@ const BigWrapper: React.FC<Props> = ({
         <div className="w-full h-full backgroundColor rounded-xl p-2 flex flex-col">
                     <div className="w-full aspect-video shrink-0 rounded-xl relative overflow-hidden">
                         <Link href={`yazi/${data.seo}`} className="w-full h-full">
-                            <Image alt="banner" src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+                            <Image alt={data.title} title={data.title} src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                         </Link>
                     <span className="absolute top-2 left-2">
                         <Badge>

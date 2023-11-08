@@ -14,7 +14,7 @@ const Slide: React.FC<Props> = ({
   return (
     <div className="w-full aspect-video lg:aspect-[3/1] overflow-hidden rounded-xl relative group">
         <div  className="w-full h-full">
-        <Image alt="" src={item.image} fill quality={100} className="object-cover"/>
+        <Image alt={item.title} title={item.title} src={item.image} fill quality={100} className="object-cover"/>
         </div>
 
         <div className="absolute bottom-0 left-0 z-40 w-full flex flex-col translate-y-[50%] group-hover:translate-y-0 duration-300 bg-gradient-to-t from-darkerColor">

@@ -9,7 +9,7 @@ export const getSettings = async() => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/settings`, {
             cache: 'no-cache'
         }).then((res) => res.json()).then((data) => {
-            return data.data
+            return data.data as Settings
         })
         return res
     } catch (error) {

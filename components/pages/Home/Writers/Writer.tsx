@@ -18,7 +18,7 @@ const Writer: React.FC<Props> = ({
 
                 <div className="w-full absolute -bottom-5 md:-bottom-10 left-0 flex items-center justify-center">
                     <div className="w-1/4 md:w-20 aspect-square rounded-full overflow-hidden relative border-2 border-thirth">
-                        <Image alt="banner" src={data.image ? data.image : '/images/logo.png'} fill quality={100} className="object-cover"/>
+                        <Image alt={data.name} title={data.name} src={data.image ? data.image : '/images/logo.png'} fill quality={100} className="object-cover"/>
                     </div>
                 </div>
             </div>

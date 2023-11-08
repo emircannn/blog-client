@@ -27,7 +27,7 @@ const ActualPage: React.FC<Props> = ({data, data2}) => {
             <UserInfo data={data.user} date={data.createdAt} readCount={data.readCount} className="w-10" lg/>
 
             <div className="w-full aspect-[16/9] rounded-xl overflow-hidden relative">
-                <Image alt="banner" src={data.image} fill quality={100} className="object-cover"/>
+                <Image alt={data.title} title={data.title} src={data.image} fill quality={100} className="object-cover"/>
             </div>
 
             <div className="sm:grid grid-cols-5 gap-4 max-sm:flex flex-col-reverse">

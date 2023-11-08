@@ -13,7 +13,7 @@ const Item: React.FC<Props> = ({
   return (
     <div className="w-full flex flex-col p-3 backgroundColor rounded-xl gap-3">
         <Link href={`/sayi/${data.seo}`} className="aspect-[1/1.35] shrink-0 w-full relative overflow-hidden rounded-xl flex">
-        <Image alt="banner" src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+        <Image alt={data.title} title={data.title} src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
 
         <span className="absolute bottom-2 right-2">
             <Badge>{dateFormater(data.createdAt)}</Badge>
