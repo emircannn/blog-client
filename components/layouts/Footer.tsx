@@ -82,8 +82,8 @@ const Footer = async() => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-center gap-1 text-sm font-medium">
-            Copyright © {currentYear > 2023 ? `2023 - ${currentYear}` : currentYear} Tüm Hakları Saklıdır. | 
+            <div className="flex items-center justify-center gap-1 text-sm font-medium flex-wrap text-center">
+            Tüm Hakları Saklıdır. © {currentYear > 2023 ? `2023 - ${currentYear}` : currentYear} | 
             <Link href={settings?.twitterLink}
             target="_blank"
             className="duration-300 hover:text-thirth">ZİNCİRKIRAN</Link>

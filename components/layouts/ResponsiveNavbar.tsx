@@ -6,13 +6,21 @@ import { useState } from "react";
 import Logo from "../logo";
 import { ModeToggle } from "../themeToggle";
 import ListItem from "./ResNavLi";
+import { seoDesc } from "../utils";
+import Link from "next/link";
 
 interface NavItem {
     name: string;
     seo: string;
-    dropdown?: NavItem[];
-  }
-const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
+    dropdown?: NavItem[] | any
+}
+
+interface Props {
+    settings?: Settings
+    items: NavItem[]
+}
+
+const ResponsiveNavbar: React.FC<Props> = ({ items, settings }) => {
     const [open, setOpen] = useState(false)
 
     return ( 
@@ -39,13 +47,18 @@ const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
             
         </div>  
 
-        <p className="text-[13px]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, corporis ea voluptatibus molestias inventore nesciunt.</p>
+        <p className="text-[13px]">{seoDesc(settings?.about_us) || ''}</p>
 
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
+                {settings?.twitterLink && 
+                <Link href={settings.twitterLink}>
                 <Twitter/>
+                </Link>}
+                {settings?.instagramLink && 
+                <Link href={settings.instagramLink}>
                 <Facebook/>
-                <Instagram/>
+                </Link>}
             </div>
 
             <ModeToggle/>
@@ -58,8 +71,9 @@ const ResponsiveNavbar: React.FC<{ items: NavItem[] }> = ({ items }) => {
                 <ListItem
                 name={item.name}
                 seo={item.seo}
-                dropdown={item.dropdown}
+                dropdown={item?.dropdown}
                 key={i}
+                setOpen={setOpen}
                 />
             ))}
         </ul>

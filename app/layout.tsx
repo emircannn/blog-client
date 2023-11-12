@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   verification: {
     google: `google-site-verification=${process.env.NEXT_PUBLIC_GOOGLE}`
-  }
+  },
 }
 
 export default function RootLayout({

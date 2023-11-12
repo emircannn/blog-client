@@ -117,7 +117,7 @@ const WriterPage: React.FC<Props> = ({
 
             {actual?.length > 0 &&
             <>
-            <h3 className="heading">Yazara Aktüel Yazılar</h3>
+            <h3 className="heading">Yazara Ait Aktüel Yazılar</h3>
             <main className="col-span-4 lg:col-span-3 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 !max-h-fit">
                 {actual?.map((v, i) => (
                     <ActualItem key={i} data={v}/>

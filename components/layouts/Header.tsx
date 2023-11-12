@@ -45,8 +45,9 @@ const Header = async() => {
 
     const data = getMagazineHeader();
     const data2 = getCategoryHeader();
+    const data3 = getSettings();
 
-    const [magazines, category] = await Promise.all([data, data2])
+    const [magazines, category, settings] = await Promise.all([data, data2, data3])
 
     const categories = [{name: 'Aktüel', seo: `/aktuel`}, {name: 'Tüm Yazılar', seo: `/yazilar`}]
     const newData = category?.map((item: CategoryType) => ({
@@ -84,6 +85,7 @@ const Header = async() => {
                 </div>
                 <ResponsiveNavbar
                 items={navbar}
+                settings={settings}
                 />
             </div>
         </div>

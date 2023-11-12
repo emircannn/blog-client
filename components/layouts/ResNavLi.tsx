@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowRight, ChevronsUpDown } from "lucide-react";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import Link from "next/link";
 
@@ -9,9 +9,10 @@ interface NavItemProps {
     name: string;
     seo: string;
     dropdown?: NavItemProps[];
+    setOpen: Dispatch<SetStateAction<boolean>>
   }
 
-const ListItem: React.FC<NavItemProps> = ({name, seo, dropdown}) => {
+const ListItem: React.FC<NavItemProps> = ({name, seo, dropdown, setOpen}) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return ( 
@@ -22,7 +23,7 @@ const ListItem: React.FC<NavItemProps> = ({name, seo, dropdown}) => {
     >
     <div className="flex flex-col w-full">
     <div className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
-        <Link href={seo} className="font-semibold ">{name}</Link>
+        <Link href={seo} onClick={() => setOpen(false)} className="font-semibold ">{name}</Link>
         {dropdown && 
         <CollapsibleTrigger asChild>
         <ChevronsUpDown className="cursor-pointer"/>
@@ -32,8 +33,8 @@ const ListItem: React.FC<NavItemProps> = ({name, seo, dropdown}) => {
 
     <CollapsibleContent>
         {dropdown?.map((item, i) => (
-            <div key={i} className="flex flex-col pl-3">
-            <Link href={item.seo} className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
+        <div key={i} className="flex flex-col pl-3">
+            <Link onClick={() => setOpen(false)} href={item.seo} className="px-2 py-3 rounded-xl hover:dark:bg-darkColor duration-300 hover:bg-lightColor  w-full flex items-center justify-between">
                 <span className="font-semibold ">{item.name}</span>
                 <ArrowRight className="cursor-pointer"/>
             </Link>
