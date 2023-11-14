@@ -17,7 +17,7 @@ const Category: React.FC<Props> = ({imageClass='w-12', data}) => {
         <div className="flex flex-col justify-between gap-1 h-full">
             <h6 className="articleHeading">{data?.name}</h6>
             <p className="text-xs font-medium opacity-60">
-                Yazı Adeti: {data?.articles?.length}
+                Yazı Adeti: {data?.articleCount || data?.articles.length}
             </p>
         </div>
     </Link>

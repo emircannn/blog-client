@@ -32,6 +32,7 @@ interface CategoryType {
     createdAt: string 
     updatedAt: string 
     articles: Texts[]
+    articleCount?: number
 }
 
 interface Magazine {
@@ -44,8 +45,9 @@ interface Magazine {
     file: string,
     desc?: string,
     contributions: Contributions[]
-    comments: Comment[]
+    comments: Comments[]
     updatedAt: string
+    contributionCount?: number
 }
 
 interface Contributions {
@@ -69,7 +71,7 @@ interface Texts {
     text: string
     note?: string
     image: string
-    comments: Comment[]
+    comments: Comments[]
     readCount: number
     createdAt: string
     updatedAt: string
@@ -87,7 +89,7 @@ interface Actual {
     text: string
     note?: string
     image: string
-    comments: Comment[]
+    comments: Comments[]
     readCount: number
     createdAt: string
     updatedAt: string
@@ -95,13 +97,13 @@ interface Actual {
     user: User
 }
 
-interface Comment {
-    id: string
-    comment: string
-    name: string
-    email: string
-    createdAt: string
-    updatedAt: string
+interface Comments {
+    id?: string
+    comment?: string
+    name?: string
+    email?: string
+    createdAt?: string
+    updatedAt?: string
     textId?: string
     text?: Texts
     actualId?: string
@@ -120,5 +122,5 @@ interface Settings {
     instagram?: string
     instagramLink?: string
     about_us?: string
-    patreon?: string
+    patreon? : string
   }

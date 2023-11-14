@@ -11,12 +11,12 @@ interface Props {
 const Article: React.FC<Props> = ({ showBadge,data}) => {
   return (
     <div className="w-full rounded-xl">
-            <Link href={`/yazi/${data.seo}`} className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex">
-            <Image alt={data.title} title={data.title} src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+            <Link href={`/yazi/${data?.seo}`} className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex">
+            <Image alt={data?.title} title={data?.title} src={data?.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                 {showBadge &&
                 <span className="absolute top-2 left-2">
                     <Badge>
-                        {data.category.name}
+                        {data?.category?.name}
                     </Badge>
                 </span>}
             </Link>

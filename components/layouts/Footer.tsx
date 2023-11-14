@@ -36,13 +36,15 @@ const Footer = async() => {
                     <Logo/>
 
                     <div className="flex flex-col gap-2">
-                        {info?.map((item, i) => (
+                    {info?.map((item, i) => (
+                        item.exist ? (
                             <Link key={i} href={item.href} target="_blank" 
-                            className={`flex items-center gap-2 text-sm hover:opacity-60 duration-300 max-md:text-center ${!item.exist && 'hidden'}`}>
+                            className={`flex items-center gap-2 text-sm hover:opacity-60 duration-300 max-md:text-center`}>
                                 {item.icon}
                                 {item.label}
                             </Link>
-                        ))}
+                        ) : null
+                    ))}
                     </div>
                 </div>
                 <div className="flex flex-col gap-4 items-center">

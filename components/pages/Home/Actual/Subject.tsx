@@ -24,7 +24,7 @@ const Subject: React.FC<Props> = ({
             </p>
 
             <div className="flex justify-between items-center gap-2 text-xs opacity-60">
-                <span className="line-clamp-1">Yazı Adeti: {data.contributions.length}</span>
+                <span className="line-clamp-1">Yazı Adeti: {data.contributionCount}</span>
                 <span>{dateFormater(data.createdAt)}</span>
             </div>
         </div>

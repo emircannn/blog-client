@@ -26,7 +26,7 @@ const UserInfo: React.FC<Props> = async({className = 'w-7', lg=false, date, read
                 <HoverCardTrigger>
                 <Link href={`/yazar/${data?.username}`} className="flex items-center gap-2 cursor-pointer">
                     <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden shadow-md")}>
-                        <Image alt={data.name} title={data.name} src={data?.image ? data.image: '/images/logo.png'} fill quality={100} className="object-cover"/>
+                        <Image alt={data?.name} title={data?.name} src={data?.image ? data.image: '/images/logo.png'} fill quality={100} className="object-cover"/>
                     </div>
                     <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>{data?.name}</span>
                 </Link>

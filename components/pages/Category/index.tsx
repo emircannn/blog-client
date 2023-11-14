@@ -37,6 +37,8 @@ const CategoryPage: React.FC<Props> = ({seo}) => {
     }
   }, [page, seo])
 
+  console.log(data)
+
   if(loading) {
     return <LoadingScreen/>
   }
