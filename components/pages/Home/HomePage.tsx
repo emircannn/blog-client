@@ -14,6 +14,19 @@ import { useSettings } from "@/lib/context";
 
 const HomePage = () => {
 
+    const getAllUsers = async() => {
+        try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}home/getAllUsers`)
+        console.log(res.data.data)
+        return res.data.data as User[]
+    } catch (error) {
+        console.log(error)
+        throw new Error
+    }
+    }
+
+    
+
     const getSlider = async() => {
         try {
             const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}settings/getSlider`)
@@ -100,6 +113,7 @@ const HomePage = () => {
         setMagazinesData(magazines)
         setCategoriesData(categories)
         setEditorsData(editors)
+        const a = await getAllUsers()
         setLoading(false)
       }
 
