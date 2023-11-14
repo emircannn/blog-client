@@ -53,6 +53,9 @@ dependencies:
   axios:
     specifier: ^1.6.0
     version: 1.6.0
+  blog-client:
+    specifier: 'link:'
+    version: 'link:'
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
