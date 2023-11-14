@@ -5,9 +5,9 @@ import ActualItem from "./Actual";
 import Subject from "./Subject"
 
 interface Props {
-  data: Actual[]
-  magazines: Magazine[]
-  settings: Settings
+  data: Actual[] | undefined
+  magazines: Magazine[] | undefined
+  settings: Settings | undefined
 }
 
 
@@ -21,10 +21,10 @@ const Actual: React.FC<Props> = ({
       <main className="w-2/3 max-lg:w-full flex flex-col gap-4">
           <h6 className="heading">Aktüel</h6>
         <article className="grid-cols-2 max-lg:grid-cols-3 max-md:grid-cols-2 grid gap-4">
-          {data?.length > 0 &&
+          {data && data?.length > 0 ?
             data.map((_,i) => (
               <ActualItem key={i} data={_}/>
-            ))
+            )) : null
           }
         </article>
       </main>
@@ -32,10 +32,11 @@ const Actual: React.FC<Props> = ({
       <aside className="w-1/3 max-lg:w-full flex flex-col gap-4">
           <h6 className="heading">Sayılar</h6>
         <article className="gap-4 grid grid-cols-1 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {magazines?.length > 0 &&
+          {magazines && 
+          magazines?.length > 0 ?
             magazines?.map((data, i) => (
               <Subject key={i} data={data}/>
-            ))}
+            )) : null}
           <ClientOnly>
             <Social settings={settings}/>
           </ClientOnly>

@@ -1,72 +1,39 @@
-
+'use client'
 import ClientOnly from "@/components/layouts/ClientOnly"
 import ArticlePage from "@/components/pages/Article"
-import { seoDesc } from "@/components/utils"
-import { Metadata } from "next"
+import axios from "axios"
 import {redirect} from 'next/navigation'
+import { useEffect, useState } from "react"
 
-const getTextWithSeo = async(seo: string) => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}article/getTextWithSeo?seo=${seo}`, {
-      next: { revalidate: 1*60*5 }
-    }).then((res) => res.json()).then((data) => {
-        return data.data as Texts
-    })
-    return res
-} catch (error) {
-    console.log(error)
-}
-}
+const Page = ({ params }: { params: { seo: string } }) => {
 
-interface Props {
-  params: { seo: string }
-}
-
-  export async function generateMetadata({params}: Props): Promise<Metadata> {
-    const data = await getTextWithSeo(params.seo)
-    if(!data) return {
-      title: "Sayfa Bulunamadı",
-      description: "Üzgünüz, sayfa bulunamadı...",
-    }
-    
-
-    return {
-      title: data.title,
-      description: seoDesc(data.text),
-      category: data.category.name,
-      robots: 'index, follow',
-      applicationName: 'ZİNCİRKIRAN',
-      alternates: {
-        canonical: `/yazi/${data.seo}`
-      },
-      authors: {
-        name: data.user.name,
-        url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.user.username}`
-      },
-      assets: data.image,
-      openGraph: {
-        type: 'website',
-        title: data.title,
-        description: seoDesc(data.text),
-        siteName: "ZİNCİRKIRAN",
-        images: [{
-          url: data.image,
-        }],
-        url: `${process.env.NEXT_PUBLIC_SITE}/yazi/${data.seo}`
-      },
-    }
+  const getTextWithSeo = async(seo: string) => {
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}article/getTextWithSeo?seo=${seo}`)
+      return res.data.data as Texts
+  } catch (error) {
+      console.log(error)
+  }
   }
 
-const Page = async ({ params }: { params: { seo: string } }) => {
-  const data = await getTextWithSeo(params.seo)
+  const [text, setText] = useState<Texts>()
 
-  if(!data) {
-    redirect('/')
-  }
+  useEffect(() => {
+    const getData = async() => {
+      const data = await getTextWithSeo(params.seo)
+      if(!data) {
+        redirect('/')
+      }
+      setText(data)
+    }
 
+    if(params.seo) {
+      getData()
+    }
+  }, [params.seo])
   return (
     <ClientOnly>
-        <ArticlePage data={data}/>
+        <ArticlePage data={text}/>
     </ClientOnly>
   )
 }

@@ -5,7 +5,7 @@ import Writer from "./Writer";
 import {writterSettings} from './settings'
 
 interface Props {
-    data: User[]
+    data: User[] | undefined
 }
 
 const Writers: React.FC<Props> = ({
@@ -18,7 +18,7 @@ const Writers: React.FC<Props> = ({
                     Yazar Kadromuz
                 </h6>
                 
-                {data?.length > 5 ?
+                {data && data?.length > 5 ?
                 <div className="w-full relative overflow-visible px-2 md:px-4">
                 <Slider {...writterSettings}>
                     {data.map((_,i) => (

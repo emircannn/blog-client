@@ -5,13 +5,12 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Pagination from "@/components/Pagination"
 import ActualItem from "../Home/Actual/Actual"
-import { getSettings } from "@/components/layouts/Header"
+import { useSettings } from "@/lib/context"
 
 const ActualPage = () => {
 
     const { toast } = useToast()
     const [data, setData] = useState<Actual[]>([])
-    const [settings, setSettings] = useState<any>()
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
 
@@ -33,16 +32,7 @@ const ActualPage = () => {
         getData()
     }, [page, toast])
 
-    useEffect(() => {
-        const getData = async() => {
-            const res = await getSettings()
-            setSettings(res)
-        }
-
-        getData()
-    }, [])
-
-    console.log(settings)
+    const { settings  } = useSettings();
   return (
     <section className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
         <div className="col-span-4 lg:col-span-3 rounded-xl flex flex-col gap-4 !max-h-fit">

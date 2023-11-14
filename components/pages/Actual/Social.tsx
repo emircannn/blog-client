@@ -4,7 +4,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 interface Props {
     height?: number
-    settings: Settings
+    settings: Settings | undefined
 }
 
 const Social: React.FC<Props> = ({height=300, settings}) => {

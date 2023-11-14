@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 
 interface Props {
-    data: Magazine
+    data: Magazine | undefined
 }
 const Share: React.FC<Props> = ({
     data
@@ -19,7 +19,7 @@ const Share: React.FC<Props> = ({
         <div className="flex items-center justify-center gap-4">
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'zincirkiran_net', _title: data.title, platform: 'twitter'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'zincirkiran_net', _title: data?.title, platform: 'twitter'})}>
                 <Twitter/>
             </Button>
             </HoverCardTrigger>
@@ -31,7 +31,7 @@ const Share: React.FC<Props> = ({
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data.title, platform: 'whatsapp'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data?.title, platform: 'whatsapp'})}>
                 <MessageCircle/>
             </Button>
             </HoverCardTrigger>
@@ -43,7 +43,7 @@ const Share: React.FC<Props> = ({
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data.title, platform: 'facebook'})}>
+            <Button size='icon' onClick={() => share({userProfile: 'ZİNCİRKIRAN', _title: data?.title, platform: 'facebook'})}>
                 <Facebook/>
             </Button>
             </HoverCardTrigger>

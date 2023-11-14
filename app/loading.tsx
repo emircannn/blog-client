@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
 
-const loading = () => {
+const HomeLoading = () => {
   return (
     <>
     <section className="flex flex-col gap-5 lg:gap-8 pb-5">
@@ -147,4 +147,4 @@ const loading = () => {
   )
 }
 
-export default loading
+export default HomeLoading

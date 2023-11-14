@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from '@/components/layouts/Footer'
 import { Toaster } from "@/components/ui/toaster"
+import { SettingsProvider } from '@/lib/context'
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE}`),
@@ -38,10 +39,13 @@ export default function RootLayout({
         enableSystem={true}
         storageKey='theme'
         >
+          <SettingsProvider>
+
           <Header/>
           <Toaster />
             {children}
           <Footer/>
+          </SettingsProvider>
         </ThemeProvider>
       </body>
     </html>

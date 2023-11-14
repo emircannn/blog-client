@@ -43,8 +43,6 @@ const CategoryPage: React.FC<Props> = ({seo}) => {
     return <LoadingScreen/>
   }
   
-  
-
   return (
     <section className="container min-h-[calc(100vh_-_416px)] grid grid-cols-4 gap-4 py-5">
         <main className="col-span-4 lg:col-span-3 flex flex-col items-center gap-3 !max-h-fit">

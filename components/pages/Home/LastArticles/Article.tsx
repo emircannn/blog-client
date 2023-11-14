@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-    data: Texts
+    data: Texts | undefined
 }
 
 const Article: React.FC<Props> = ({
@@ -14,7 +14,7 @@ const Article: React.FC<Props> = ({
     return ( 
         <div className="w-full rounded-xl">
             <Link href={`/yazi/${data?.seo}`} className="w-full aspect-[5/3] rounded-xl overflow-hidden relative flex shadow-md">
-            <Image alt={data.title} title={data.title} src={data?.image} fill quality={100} className="object-cover hover:scale-105 duration-300 "/>
+            <Image alt={data?.title || ''} title={data?.title} src={data?.image || '/images/logo.png'} fill quality={100} className="object-cover hover:scale-105 duration-300 "/>
                     <span className="absolute top-1 left-1 sm:top-2 sm:left-2">
                     <Badge>
                         {data?.category.name}

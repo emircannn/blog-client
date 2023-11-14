@@ -1,17 +1,15 @@
+'use client'
 import { Instagram, Mail, Phone, Twitter } from "lucide-react";
 import Logo from "../logo";
 import ClientOnly from "./ClientOnly";
-import { getCategoryHeader, getMagazineHeader, getSettings } from "./Header";
 import Link from "next/link";
+import { useSettings } from "@/lib/context";
 
-const Footer = async() => {
-    const data = getSettings();
-    const data2 = getMagazineHeader();
-    const data3 = getCategoryHeader();
+const Footer =() => {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
 
-    const [settings, magazines, category] = await Promise.all([data, data2, data3])
+    const { settings, magazines, category  } = useSettings();
 
     const info = [
         {label: `@${settings?.twitter}`, icon: <Twitter/>, href: settings?.twitterLink, exist: settings?.twitterLink && settings?.twitter},
@@ -76,8 +74,8 @@ const Footer = async() => {
                             <Link href='/hakkimizda' className="text-sm hover:opacity-60 duration-300 text-center">
                                 Hakkımızda
                             </Link>
-                            {settings?.patreon &&
-                            <Link href={settings.patreon} className="text-sm hover:opacity-60 duration-300 text-center">
+                            {settings && settings?.patreon &&
+                            <Link href={settings?.patreon} className="text-sm hover:opacity-60 duration-300 text-center">
                                 Bağış Yap
                             </Link>}
                     </div>
@@ -86,9 +84,10 @@ const Footer = async() => {
 
             <div className="flex items-center justify-center gap-1 text-sm font-medium flex-wrap text-center">
             Tüm Hakları Saklıdır. © {currentYear > 2023 ? `2023 - ${currentYear}` : currentYear} | 
+            {settings &&
             <Link href={settings?.twitterLink}
             target="_blank"
-            className="duration-300 hover:text-thirth">ZİNCİRKIRAN</Link>
+            className="duration-300 hover:text-thirth">ZİNCİRKIRAN</Link>}
             </div>
         </div>
     </footer>

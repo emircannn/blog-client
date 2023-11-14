@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface Props {
-  data: Settings
+  data: Settings | undefined
 }
 
 const WriteWithUs: React.FC<Props> = ({
@@ -22,7 +22,7 @@ const WriteWithUs: React.FC<Props> = ({
             Değerlendirilmek ve sonrasında yayımlamak için yazı havuzumuza güncel politik yazılarınızı gönderebilirsiniz. Detaylı bilgi için iletişime geçiniz.
             </p>
 
-            <Link target="_blank" href={`mailto:${data.email}`}>
+            <Link target="_blank" href={`mailto:${data?.email}`}>
             <Button className="bg-thirth dark:bg-thirth" size='lg'>
                 İletişime Geçiniz
             </Button>

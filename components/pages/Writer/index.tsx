@@ -7,7 +7,7 @@ import Pagination from "@/components/Pagination"
 import ActualItem from "../Home/Actual/Actual"
 
 interface Props {
-    data: User,
+    data: User | undefined
     username: string
 }
 

@@ -3,7 +3,7 @@ import SmallWrapper from "./SmallWrapper";
 import BigWrapper from "./BigWrapper";
 
 interface Props {
-    data: Texts[]
+    data: Texts[] | undefined
 }
 const MostReaded: React.FC<Props> = ({
     data
@@ -14,12 +14,12 @@ const MostReaded: React.FC<Props> = ({
 
             <article className="w-full flex gap-3 max-lg:flex-col h-full">
                 <div className="flex w-full min-h-full flex-1">
-                <BigWrapper data={data[0]}/>
+                <BigWrapper data={data && data[0]}/>
                 </div>
 
                 <div className="w-full flex flex-col gap-3 min-h-full flex-1">
-                <SmallWrapper data={data[1]}/>
-                <SmallWrapper data={data[2]}/>
+                <SmallWrapper data={data && data[1]}/>
+                <SmallWrapper data={data && data[2]}/>
                 </div>
             </article>
         </main>

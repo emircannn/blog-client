@@ -2,7 +2,7 @@ import Category from "./Category"
 import OtherArticles from "./OtherArticles"
 
 interface Props {
-  data: Actual[] | Texts
+  data: Actual[] | Texts | undefined
   actual?: boolean
 }
 

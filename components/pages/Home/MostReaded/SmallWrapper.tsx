@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-    data: Texts
+    data: Texts | undefined
 }
 const SmallWrapper: React.FC<Props> = ({
     data
@@ -15,16 +15,16 @@ const SmallWrapper: React.FC<Props> = ({
                     <div className="flex flex-col gap-2 justify-between md:p-2 !h-full">
                     <span>
                     <Badge>
-                        {data.category.name}
+                        {data?.category.name}
                     </Badge>
                     </span>
-                    <Link href={`/yazi/${data.seo}`} className="articleHeading max-sm:line-clamp-3 hover:underline duration-300">
-                        {data.title}
+                    <Link href={`/yazi/${data?.seo}`} className="articleHeading max-sm:line-clamp-3 hover:underline duration-300">
+                        {data?.title}
                     </Link>
-                    <UserInfo data={data.user} date={data.createdAt} readCount={data.readCount}/>
+                    <UserInfo data={data?.user} date={data?.createdAt} readCount={data?.readCount}/>
                     </div>
-                    <Link href={`/yazi/${data.seo}`} className="min-h-full w-1/3 shrink-0 rounded-xl overflow-hidden relative">
-                    <Image alt={data.title} title={data.title} src={data.image} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
+                    <Link href={`/yazi/${data?.seo}`} className="min-h-full w-1/3 shrink-0 rounded-xl overflow-hidden relative">
+                    <Image alt={data?.title || ''} title={data?.title} src={data?.image || '/images/logo.png'} fill quality={100} className="object-cover hover:scale-105 duration-300"/>
                     </Link>
                 </div>
      );

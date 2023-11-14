@@ -17,11 +17,19 @@ export function formatReadCount(count) {
 }
 
 function etiketleriTemizle(desc) {
-  return desc.replace(/<[^>]*>/g, "");
+  return desc?.replace(/<[^>]*>/g, "");
 }
 
 
 export function seoDesc(desc) {
   const temizMetin = etiketleriTemizle(desc);
-  return temizMetin.slice(0, 157) + '...';
+  return temizMetin?.slice(0, 157) + '...';
+}
+
+export function getBaseUrl() {
+  // Vercel ortamında çalıştığınızı varsayalım
+  // Eğer başka bir ortamdaysanız buradaki değeri değiştirmeniz gerekebilir
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+
+  return baseUrl;
 }

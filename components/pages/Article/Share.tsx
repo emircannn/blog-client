@@ -5,7 +5,7 @@ import { share } from "./shareArticle"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 
 interface Props {
-    data: Actual
+    data: Actual | undefined
 }
 const Share: React.FC<Props> = ({
     data
@@ -17,7 +17,7 @@ const Share: React.FC<Props> = ({
         <div className="grid grid-cols-3 sm:grid-cols-2 gap-4">
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: data.user.twitter && data.user.twitter, _title: data.title, platform: 'twitter'})}>
+            <Button size='icon' onClick={() => share({userProfile: data?.user.twitter && data?.user.twitter, _title: data?.title, platform: 'twitter'})}>
                 <Twitter/>
             </Button>
             </HoverCardTrigger>
@@ -29,7 +29,7 @@ const Share: React.FC<Props> = ({
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: data.user.name, _title: data.title, platform: 'whatsapp'})}>
+            <Button size='icon' onClick={() => share({userProfile: data?.user.name, _title: data?.title, platform: 'whatsapp'})}>
                 <MessageCircle/>
             </Button>
             </HoverCardTrigger>
@@ -41,7 +41,7 @@ const Share: React.FC<Props> = ({
         </HoverCard>
         <HoverCard>
             <HoverCardTrigger>
-            <Button size='icon' onClick={() => share({userProfile: data.user.name, _title: data.title, platform: 'facebook'})}>
+            <Button size='icon' onClick={() => share({userProfile: data?.user.name, _title: data?.title, platform: 'facebook'})}>
                 <Facebook/>
             </Button>
             </HoverCardTrigger>

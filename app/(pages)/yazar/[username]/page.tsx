@@ -1,72 +1,43 @@
+'use client'
 import ClientOnly from "@/components/layouts/ClientOnly"
 import WriterPage from "@/components/pages/Writer"
-import { Metadata } from "next"
+import axios from "axios"
 import { redirect } from "next/navigation"
+import { useEffect, useState } from "react"
 
-const getUser = async(username: string) => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}user/getUser?username=${username}`, {
-      next: { revalidate: 1*60*5 }
-    }).then((res) => res.json()).then((data) => {
-        return data.data as User
-    })
-    return res
-} catch (error) {
-    console.log(error)
-}
-}
 
-interface Props {
-  params: { username: string }
-}
 
-  export async function generateMetadata({params}: Props): Promise<Metadata> {
-    const data = await getUser(params.username)
-    if(!data) return {
-      title: "Sayfa Bulunamadı",
-      description: "Üzgünüz, sayfa bulunamadı...",
-    }
-    
+const Page = ({ params }: { params: { username: string } }) => {
 
-    return {
-      title: data.name,
-      description: data?.about || '',
-      robots: 'index, follow',
-      applicationName: 'ZİNCİRKIRAN',
-      alternates: {
-        canonical: `/yazar/${data.username}`
-      },
-      authors: {
-        name: data.name,
-        url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.username}`
-      },
-      assets: data.image,
-      openGraph: {
-        type: 'website',
-        title: data.name,
-        description: data?.about || '',
-        siteName: "ZİNCİRKIRAN",
-        images: [{
-          url: data.image || '',
-        }, {
-          url: data.coverImage || '',
-        }],
-        url: `${process.env.NEXT_PUBLIC_SITE}/yazar/${data.username}`
-      },
-    }
+  const getUser = async(username: string) => {
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}user/getUser?username=${username}`)
+      return res.data.data as User
+  } catch (error) {
+      console.log(error)
   }
-
-const Page = async ({ params }: { params: { username: string } }) => {
-
-  const data = await getUser(params.username)
-
-  if(!data) {
-    redirect('/')
   }
+  
+  const [user, setUser] = useState<User>()
+
+  useEffect(() => {
+    const getData = async() => {
+      const data = await getUser(params.username)
+      if(!data) {
+        redirect('/')
+      }
+      setUser(data)
+    }
+
+    if(params.username) {
+      getData()
+    }
+  }, [params.username])
+
 
   return (
     <ClientOnly>
-        <WriterPage data={data} username={params.username}/>
+        <WriterPage data={user} username={params.username}/>
     </ClientOnly>
   )
 }

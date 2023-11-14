@@ -1,53 +1,14 @@
-
+'use client'
+import { useSettings } from "@/lib/context";
 import Logo from "../logo";
 import { ModeToggle } from "../themeToggle";
 import Navbar from "./Navbar";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 
-export const getSettings = async() => {
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}settings/settings`, {
-            next: { revalidate: 1*60*10 }
-        }).then((res) => res.json()).then((data) => {
-            return data.data
-        })
-        return res
-    } catch (error) {
-        console.log(error)
-    }
-}
-export const getMagazineHeader = async() => {
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getMagazineHeader`, {
-            next: { revalidate: 1*60*5 }
-        }).then((res) => res.json()).then((data) => {
-            return data.data
-        })
-        return res
-    } catch (error) {
-        console.log(error)
-    }
-}
-export const getCategoryHeader = async() => {
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}home/getCategoryHeader`, {
-            next: { revalidate: 1*60*5 }
-        }).then((res) => res.json()).then((data) => {
-            return data.data
-        })
-        return res
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-const Header = async() => {
+const Header =() => {
 
-    const data = getMagazineHeader();
-    const data2 = getCategoryHeader();
-    const data3 = getSettings();
-
-    const [magazines, category, settings] = await Promise.all([data, data2, data3])
+    const { settings, magazines, category  } = useSettings();
 
     const categories = [{name: 'Aktüel', seo: `/aktuel`}, {name: 'Tüm Yazılar', seo: `/yazilar`}]
     const newData = category?.map((item: CategoryType) => ({

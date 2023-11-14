@@ -1,4 +1,4 @@
-
+'use client'
 import Image from "next/image";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { Avatar, AvatarImage } from "./ui/avatar";
@@ -6,27 +6,26 @@ import Link from "next/link";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { dateFormater, formatReadCount } from "./utils";
-import { getSettings } from "@/components/layouts/Header";
+import { useSettings } from "@/lib/context";
 
 interface Props {
     className?: string;
     lg?: boolean ,
     date?: string ,
     readCount?: number,
-    data: User
+    data: User | undefined
 }
 
-const UserInfo: React.FC<Props> = async({className = 'w-7', lg=false, date, readCount, data}) => {
-    const res = getSettings();
+const UserInfo: React.FC<Props> = ({className = 'w-7', lg=false, date, readCount, data}) => {
+    const { settings  } = useSettings();
 
-    const [settings] = await Promise.all([res])
     return ( 
         <div className="flex items-center flex-wrap gap-2">
             <HoverCard>
                 <HoverCardTrigger>
                 <Link href={`/yazar/${data?.username}`} className="flex items-center gap-2 cursor-pointer">
                     <div className={twMerge(className, "aspect-square rounded-full relative overflow-hidden shadow-md")}>
-                        <Image alt={data?.name} title={data?.name} src={data?.image ? data.image: '/images/logo.png'} fill quality={100} className="object-cover"/>
+                        <Image alt={data?.name || ''} title={data?.name} src={data?.image ? data.image: '/images/logo.png'} fill quality={100} className="object-cover"/>
                     </div>
                     <span className={`${lg ? 'text-sm' : 'text-xs'} font-semibold line-clamp-1`}>{data?.name}</span>
                 </Link>
@@ -71,7 +70,7 @@ const UserInfo: React.FC<Props> = async({className = 'w-7', lg=false, date, read
             </HoverCard>
             {date && <span className={`opacity-60 ${lg ? 'text-sm' : 'text-xs'}`}>{dateFormater(date)}</span>}
 
-            {settings.showReadCount ?
+            {settings?.showReadCount ?
             readCount && readCount > 0 ?
             <div className={`${lg ? 'text-sm' : 'text-xs'} opacity-60`}>
             {formatReadCount(readCount)} okunma

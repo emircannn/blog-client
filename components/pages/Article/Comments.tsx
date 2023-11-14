@@ -8,7 +8,7 @@ import { useToast } from "@/components/ui/use-toast"
 import axios from 'axios'
 
 interface Props {
-    data: Actual | Texts | Magazine
+    data: Actual | Texts | Magazine | undefined
     actual?: boolean
     texts?: boolean
     magazine?: boolean
@@ -29,15 +29,15 @@ const Comments: React.FC<Props> = ({
         const [loading, setLoading] = useState(false)
         const handleAdd = async () => {
             try {
-                if(data.id && comment.name && comment.email && comment.comment) {
+                if(data?.id && comment.name && comment.email && comment.comment) {
                     const form: any = {}; // Başlangıçta boş bir form nesnesi oluşturun
 
                     if (actual) {
-                        form.actualId = data.id;
+                        form.actualId = data?.id;
                     } else if (texts) {
-                        form.textId = data.id;
+                        form.textId = data?.id;
                     } else if (magazine) {
-                        form.magazineId = data.id;
+                        form.magazineId = data?.id;
                     }
 
                     form.name = comment.name;
@@ -95,15 +95,16 @@ const Comments: React.FC<Props> = ({
             <div className="flex flex-col gap-4">
                 <h6 className="heading">Yorumlar</h6>
 
-                {   data.comments.length > 0 ?
-                    data.comments?.map((comment) => (
+                { data ?
+                data?.comments?.length > 0 ?
+                    data?.comments?.map((comment) => (
                         <Comment key={comment.id} data={comment}/>
                     ))
                     :
-
                     <p className="text-sm font-semibold">
                         Henüz yorum yapılmadı, ilk yorumu sen yap.
                     </p>
+                    : null
                 }
             </div>
         </div>

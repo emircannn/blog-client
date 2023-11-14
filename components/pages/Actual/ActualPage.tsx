@@ -1,4 +1,4 @@
-
+'use client'
 import UserInfo from "@/components/UserInfo"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
@@ -7,8 +7,8 @@ import Aside from "../Article/Aside"
 import Share from "../Article/Share"
 
 interface Props {
-    data: Actual
-    data2: Actual[]
+    data: Actual | undefined
+    data2: Actual[] | undefined
 }
 
 const ActualPage: React.FC<Props> = ({data, data2}) => {
@@ -27,7 +27,7 @@ const ActualPage: React.FC<Props> = ({data, data2}) => {
             <UserInfo data={data?.user} date={data?.createdAt} readCount={data?.readCount} className="w-10" lg/>
 
             <div className="w-full aspect-[16/9] rounded-xl overflow-hidden relative">
-                <Image alt={data?.title} title={data?.title} src={data?.image} fill quality={100} className="object-cover"/>
+                <Image alt={data?.title || ''} title={data?.title} src={data?.image || '/images/logo.png'} fill quality={100} className="object-cover"/>
             </div>
 
             <div className="sm:grid grid-cols-5 gap-4 max-sm:flex flex-col-reverse">
@@ -36,7 +36,7 @@ const ActualPage: React.FC<Props> = ({data, data2}) => {
                 </aside>
 
                 <p className="col-span-5 sm:col-span-4 gap-3 text-sm !leading-[22.4px] sm:!leading-[25.5px] sm:text-base" 
-                dangerouslySetInnerHTML={{ __html: data?.text }} />
+                dangerouslySetInnerHTML={{ __html: data?.text || '' }} />
             </div>
             {data?.note &&
             <div className="p-2 sm:p-5 rounded-xl bg-white dark:bg-darkColor w-full col-span-4 lg:col-span-3 gap-3 flex flex-col">

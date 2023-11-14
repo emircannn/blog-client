@@ -1,31 +1,11 @@
+'use client'
 import ClientOnly from "@/components/layouts/ClientOnly"
-import { getSettings } from "@/components/layouts/Header"
 import Logo from "@/components/logo"
-import { Metadata } from "next"
+import { useSettings } from "@/lib/context";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const data = await getSettings()
-  if(!data) return {
-    title: "Sayfa Bulunamadı",
-    description: "Üzgünüz, sayfa bulunamadı...",
-  }
-  
+const Page = () => {
 
-  return {
-    title: 'Hakkımızda',
-    description: data.about_us,
-    robots: 'index, follow',
-    applicationName: 'ZİNCİRKIRAN',
-    authors: {
-      name: data.twitter,
-      url: data.twitterLink || ''
-    },
-  }
-}
-
-const Page = async() => {
-
-    const data = await getSettings()
+  const { settings  } = useSettings();
 
   return (
     <ClientOnly>
@@ -34,7 +14,7 @@ const Page = async() => {
             <Logo/>
 
             <p className="col-span-5 sm:col-span-4 gap-3 text-sm !leading-[22.4px] sm:!leading-[25.5px] sm:text-base" 
-                dangerouslySetInnerHTML={{ __html: data?.about_us || '' }} />
+                dangerouslySetInnerHTML={{ __html: settings?.about_us || '' }} />
         </div>
     </div>
     </ClientOnly>
